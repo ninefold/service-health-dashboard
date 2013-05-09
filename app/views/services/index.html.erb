@@ -1,2 +1,6 @@
-<h1>Services#index</h1>
-<p>Find me in app/views/services/index.html.erb</p>
+<h1>Services</h1>
+<ul>
+<% for service in @services %>
+	<li><%= service.name %></li>
+<%end%>
+</ul>
