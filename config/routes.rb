@@ -1,8 +1,11 @@
 ServiceHealthDashboard::Application.routes.draw do
+  get "statuses/index"
+
   root :to => 'Services#index'
   get "services/index"
 
   resources :services
+  resources :statuses
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

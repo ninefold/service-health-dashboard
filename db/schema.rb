@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130508235635) do
+ActiveRecord::Schema.define(:version => 20130510084359) do
 
   create_table "services", :force => true do |t|
     t.string   "name"
@@ -25,5 +25,24 @@ ActiveRecord::Schema.define(:version => 20130508235635) do
   end
 
   add_index "services", ["dependent_id"], :name => "index_services_on_dependent_id"
+
+  create_table "severities", :force => true do |t|
+    t.string   "name"
+    t.integer  "val"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "statuses", :force => true do |t|
+    t.string   "name"
+    t.string   "slug"
+    t.string   "description"
+    t.integer  "severity_id"
+    t.string   "image"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "statuses", ["severity_id"], :name => "index_statuses_on_severity_id"
 
 end
