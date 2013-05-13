@@ -1,14 +1,51 @@
 <!DOCTYPE html>
-<html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+
 <head>
-  <title>ServiceHealthDashboard</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
+
+	<meta charset="utf-8">
+	<meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible'>
+	<title>Service Health Dashboard</title>
+	<%= stylesheet_link_tag    "reset", :media => "all" %>
+	<%= stylesheet_link_tag    "style", :media => "all" %>
+	<%= stylesheet_link_tag    "brand.css", :media => "all" %>
+	<%= stylesheet_link_tag    "font.css", :media => "all" %>
+
+	<%= javascript_include_tag "application" %>
+	<%= csrf_meta_tags %>
+
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
 </head>
 <body>
+	<header class="navbar">
+		<div class="navbar-inner">
+			<div class="container">
+				<a href="/" class="brand"><%= image_tag("logo.png", :alt => "rss feed") %></a>
+				<div class="nav-collapse collapse">
+					<nav class="nav">
+						<li><a href="/">Home</a></li>
+						<li><a href="/1">Ninefold</a></li>
+						<li><a href="/2">Ninefold <sup>2</sup></a></li>
+						<li><a href="https://help.ninefold.com/home">Knowledge Base</a></li>
+						<!-- <li><a href="https://portal.ninefold.com">Portal</a></li>-->
+					</nav>
+				</div>
+			</div>
+		</div>
+	</header>
 
-<%= yield %>
+	<div style="margin-top: 20px; width: 860px; margin: 20px auto 0px; border-bottom: 3px solid #2A9DDB; "><h1 id="heading">Service Health Dashboard</h1></div>
+	<div class="container main" style="margin-top: 20px;">
+
+		<div id="content">
+			<%= yield %>
+		</div>
+		<div id="push"></div>
+	</div>
 
 </body>
 </html>
+
+
