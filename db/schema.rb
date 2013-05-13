@@ -11,7 +11,32 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130510084359) do
+ActiveRecord::Schema.define(:version => 20130513010205) do
+
+  create_table "event_types", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "events", :force => true do |t|
+    t.integer  "service_id"
+    t.integer  "status_id"
+    t.text     "message"
+    t.datetime "start"
+    t.boolean  "informational"
+    t.integer  "event_type_id"
+    t.boolean  "invisible"
+    t.integer  "incident_id"
+    t.text     "description"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "events", ["event_type_id"], :name => "index_events_on_event_type_id"
+  add_index "events", ["incident_id"], :name => "index_events_on_incident_id"
+  add_index "events", ["service_id"], :name => "index_events_on_service_id"
+  add_index "events", ["status_id"], :name => "index_events_on_status_id"
 
   create_table "services", :force => true do |t|
     t.string   "name"

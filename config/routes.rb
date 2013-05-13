@@ -1,9 +1,12 @@
 ServiceHealthDashboard::Application.routes.draw do
+  get "events/index"
+
   get "statuses/index"
 
   root :to => 'Services#index'
   get "services/index"
-
+  
+  resources :events
   resources :services
   resources :statuses
   # The priority is based upon order of creation:

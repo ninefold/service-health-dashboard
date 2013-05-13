@@ -5,6 +5,15 @@
 #
 #   cities = City.create([{ "name"=> 'Chicago' }, { "name"=> 'Copenhagen' }])
 #   Mayor.create("name"=> 'Emanuel', city: cities.first)
+eventtypes = EventType.create(
+  [
+    {"name"=>"Critical"},
+    {"name"=>"Hazard"},
+    {"name"=>"Highlight"},
+    {"name"=>"Special"}
+  ]
+)
+
 severities = Severity.create(
   [
     {"name"=> 'Normal', "val"=> 10},
