@@ -47,8 +47,8 @@ statuses = Status.create(
       "image"=> 'exclamation'
     },
     {
-      "name"=> 'Normal', 
-      "slug"=> 'normal', 
+      "name"=> 'Down', 
+      "slug"=> 'down', 
       "description"=> 'The service is up or was up during this entire period', 
       "severity_id"=> "4",
       "image"=> 'cross-circle'

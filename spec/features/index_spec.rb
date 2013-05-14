@@ -25,4 +25,19 @@ describe "Index" do
       expect(page).to have_content 'The service is up or was up during this entire period'
     end
   end
+
+  describe "When accessing the root URL" do
+    it "should display the status images" do
+      @status = Status.create   :name        => 'Critical',
+                                :description => 'The service is up or was up during this entire period',
+                                :slug        => 'normal',
+                                :image       => 'tick-circle'
+
+      visit services_path
+      page.should have_xpath("//img[@src=\"/assets/status/cross-circle.png\"]")
+
+    end
+  end
+
+
 end

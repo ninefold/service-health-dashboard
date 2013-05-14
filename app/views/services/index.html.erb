@@ -4,8 +4,5 @@
 	<li><%= service.name %></li>
 <%end%>
 </ul>
-<ul>
-<% for status in @statuses %>
-	<li><%= status.name %> - <%= status.description %></li>
-<%end%>
-</ul>
+
+<%= render 'legend' %>
