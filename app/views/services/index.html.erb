@@ -2,6 +2,13 @@
 <ul>
 <% for service in @services %>
 	<li><%= service.name %></li>
+	<ol>
+	<% for s in service.x_days_statuses(4) %>
+		<% if s != nil %>
+			<li><%= s.status.image %></li>
+		<% end %>
+	<%end%>
+	</ol>
 <%end%>
 </ul>
 
