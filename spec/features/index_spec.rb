@@ -28,10 +28,10 @@ describe "Index" do
 
   describe "When accessing the root URL" do
     it "should display the status images" do
-      @status = Status.create   :name        => 'Critical',
-                                :description => 'The service is up or was up during this entire period',
-                                :slug        => 'normal',
-                                :image       => 'tick-circle'
+      @status = Status.create   :name        => 'Down',
+                                :description => 'The service is down or was down during this entire period',
+                                :slug        => 'down',
+                                :image       => 'cross-circle'
 
       visit services_path
       page.should have_xpath("//img[@src=\"/assets/status/cross-circle.png\"]")

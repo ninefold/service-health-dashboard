@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(:version => 20130513010205) do
     t.string   "description"
     t.integer  "dependent_id"
     t.integer  "version"
+    t.boolean  "invisible"
     t.integer  "order"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false

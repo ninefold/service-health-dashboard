@@ -65,6 +65,7 @@ Services = Service.create(
       "description"=>"Cloud Servers located in Zone 1 (Sydney)",
       "version"=>1,
       "order"=>1,
+      "invisible"=>false
     },
     {
       "name"=>"Cloud Servers Zone 2",
@@ -72,6 +73,8 @@ Services = Service.create(
       "description"=>"Cloud Servers located in Zone 2 (Sydney)",
       "version"=>1,
       "order"=>2,
+      "invisible"=>false
+ 
     },
     {
       "name"=>"Cloud Storage",
@@ -79,6 +82,7 @@ Services = Service.create(
       "description"=>"Cloud Storage Servers (incl. Oxygen Cloud)",
       "version"=>1,
       "order"=>3,
+      "invisible"=>false
     },
       {
       "name"=>"Ninefold Portal",
@@ -86,6 +90,7 @@ Services = Service.create(
       "description"=>"The Management portal - http://ninefold.com/portal",
       "version"=>1,
       "order"=>4,
+      "invisible"=>false
     },
     {
       "name"=>"AU-Sydney-1",
@@ -93,6 +98,8 @@ Services = Service.create(
       "description"=>"Western Suburb based data center",
       "version"=>2,
       "order"=>1,
+      "invisible"=>false
+
     },
     {
       "name"=>"AU-Sydney-2",
@@ -100,6 +107,8 @@ Services = Service.create(
       "description"=>"Inner-city data center",
       "version"=>2,
       "order"=>2,
+      "invisible"=>false
+
     },
     {
       "name"=>"US-N. California-1",
@@ -107,6 +116,8 @@ Services = Service.create(
       "description"=>"USA West Coast Data Center",
       "version"=>2,
       "order"=>3,
+      "invisible"=>false
+
     },
     {
       "name"=>"App Deploy",
@@ -114,6 +125,8 @@ Services = Service.create(
       "description"=>"Ninefold Application Deployment",
       "version"=>2,
       "order"=>4,
+      "invisible"=>true
+
     },
     {
       "name"=>"Ninefold 2 Portal",
@@ -121,6 +134,8 @@ Services = Service.create(
       "description"=>"The Management portal - http://portal.ninefold.com",
       "version"=>2,
       "order"=>5,
+      "invisible"=>false
+      
     }
   ] 
 )

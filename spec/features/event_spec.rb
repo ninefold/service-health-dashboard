@@ -28,6 +28,35 @@ describe "Events" do
     end
   end
 
+  describe "When creating duplicate events" do
+    it "should display the an event" do
+      start_time = DateTime.now
+      e = Event.create(
+        "service_id"=>1,
+        "status_id"=>1,
+        "message"=>"This is a test",
+        "start"=>start_time,
+        "informational"=>false,
+        "event_type_id"=>1,
+        "invisible"=>false,
+        "description"=>"TEST"
+      )
+      e = Event.create(
+        "service_id"=>1,
+        "status_id"=>1,
+        "message"=>"This is a test",
+        "start"=>start_time,
+        "informational"=>false,
+        "event_type_id"=>1,
+        "invisible"=>false,
+        "description"=>"TEST"
+      )
+      visit events_path
+      expect(page).to have_content 'This is a test'
+    end
   
+  end
+
+
 
 end

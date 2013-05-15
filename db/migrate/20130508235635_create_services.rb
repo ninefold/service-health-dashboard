@@ -6,6 +6,7 @@ class CreateServices < ActiveRecord::Migration
       t.string :description
       t.references :dependent
       t.integer :version
+      t.boolean :invisible
       t.integer :order
 
       t.timestamps
