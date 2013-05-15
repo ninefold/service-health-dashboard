@@ -1,0 +1,9 @@
+<% if @maintenance != nil %>
+  <ul>
+    <% for event in @maintenance %>
+      <li><%= event %></li>  
+   <%end%>
+  </ul>
+<% else %>
+   No upcoming maintenance
+<%end%>

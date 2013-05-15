@@ -1,0 +1,20 @@
+<h1>Ninefold 1</h1>
+<ul>
+	<% for service in @nf1_services %>
+	<li><%= service.name %></li>
+	<ol>
+
+		<% service.x_days_statuses(3).each_with_index do |e,i| %>
+		<% if e == nil %>
+		<li><%= image_tag("status/tick-circle.png") %></li>
+		<% else %>
+		<% if i == 0 %>
+		<li><%= image_tag("status/"+service.current_status().image+".png", :alt => service.current_status().name)%></li>
+		<% else %>
+		<li><%= image_tag("status/"+e.status.image+".png", :alt => e.status.name) %></li>	    
+		<% end %>
+		<% end %>
+		<%end%>
+	</ol>
+	<%end%>
+</ul>

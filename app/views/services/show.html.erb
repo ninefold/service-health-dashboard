@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Service:</b>
+  <%= @service.name %>
+</p>
+<% if @events != nil %>
+    <% for e in @events %>
+        <%= e %>
+    <% end %>
+<% else %>
+    No events
+<%end%>
+
+
+<%= link_to 'Back', root_path %>

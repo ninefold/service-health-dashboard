@@ -12,7 +12,7 @@ class Service < ActiveRecord::Base
 		events = Event.where(
 			'service_id = ? AND invisible=? AND start BETWEEN ? AND ?',
 			self.id.to_s,
-      true, 
+      false, 
 			date.utc.beginning_of_day(), 
 			date.utc.end_of_day()).order('start').last
 	end

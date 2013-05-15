@@ -8,7 +8,8 @@ describe "Index" do
  								                :description => 'Sydney City Data Center',
  								                :slug        => 'cloud-servers-zone-1',
  								                :version     => 1,
- 								                :order       => 1
+ 								                :order       => 1,
+                                :invisible   => false
   		visit services_path
   		expect(page).to have_content 'Cloud Servers Zone 1'
     end
