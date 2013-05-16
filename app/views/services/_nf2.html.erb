@@ -16,7 +16,6 @@
               <th class="today">Current</th>
         <% for day in @days %>
           <th class="date"><%= day.strftime("%d/%m") %></th>
-
         <%end%>
       </tr>
         </thead>
@@ -45,6 +44,11 @@
                               <td class="status" style="width: 100px;">
                   <div>
                     <%= image_tag("status/"+service.current_status().image+".png", :alt => service.current_status().name)%>
+                    <% if service.current_status().image != 'tick-circle' %>
+                              <div style="font-size:9px;">
+                                <a href="/"+service.id+"#"+service.current_status().id style="border-bottom: dotted;border-bottom-width: 1px; text-decoration: none;">(more info)</a>
+                              </div>
+                            <% end %>
                   </div>
                 </td>
 
@@ -52,6 +56,11 @@
                 <td class="status" style="width: 100px;">
                   <div>
                     <%= image_tag("status/"+e.status.image+".png", :alt => e.status.name) %>
+                    <% if e.status.image != 'tick-circle' %>
+                              <div style="font-size:9px;">
+                                <a href="/<%=service.slug%>#<%=e.status.id%>" style="border-bottom: dotted;border-bottom-width: 1px; text-decoration: none;">(more info)</a>
+                              </div>
+                            <% end %>
                   </div>
                 </td>
 
@@ -63,4 +72,5 @@
     </tbody>
   </table>
 <%end%>   
+
 

@@ -38,6 +38,12 @@ class ServicesController < ApplicationController
       true, 
       DateTime.now.beginning_of_day(), 
       DateTime.now+90.days).order('start').last
+
+    days_to_go_back = 3
+    @day = DateTime.now - days_to_go_back
+    @days = (@day .. @day + days_to_go_back).to_a { |date| "#{date}" }
+
+    @days.reverse!
   end
 
   def nf2
@@ -48,6 +54,12 @@ class ServicesController < ApplicationController
       true, 
       DateTime.now.beginning_of_day(), 
       DateTime.now+90.days).order('start').last
+      days_to_go_back = 3
+      
+    @day = DateTime.now - days_to_go_back
+    @days = (@day .. @day + days_to_go_back).to_a { |date| "#{date}" }
+
+    @days.reverse!
   end
 
 
