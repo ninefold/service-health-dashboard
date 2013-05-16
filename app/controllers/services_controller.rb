@@ -30,6 +30,15 @@ class ServicesController < ApplicationController
     end
   end
 
+  def slugshow
+    @service = Service.where('slug = ?',params[:slug]).last
+    @events = Event.where("service_id="+@service.id.to_s)
+    respond_to do |format|
+      format.html
+      format.json { render json: @service }
+    end
+  end
+
   def nf1
     @nf1_services = Service.where('version=1 AND invisible=false').all
     @statuses = Status.all
@@ -55,7 +64,7 @@ class ServicesController < ApplicationController
       DateTime.now.beginning_of_day(), 
       DateTime.now+90.days).order('start').last
       days_to_go_back = 3
-      
+
     @day = DateTime.now - days_to_go_back
     @days = (@day .. @day + days_to_go_back).to_a { |date| "#{date}" }
 
