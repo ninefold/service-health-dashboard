@@ -1,9 +1,34 @@
-<% if @maintenance != nil %>
-  <ul>
-    <% for event in @maintenance %>
-      <li><%= event %></li>  
-   <%end%>
-  </ul>
-<% else %>
-   No upcoming maintenance
-<%end%>
+<div align="left" style="margin-top: 30px;" id="heading_maintenance"><h4 style="font-size: 16px;">Scheduled Maintenance</h4></div>
+ <table id="service-list2" class="event-log" style="margin-top:10px;">
+        <thead>
+            <tr>
+                <th style="text-align: center; width: 80px;">Time</th>
+                <th class="date" style="border-right: none;">Detail</th>
+            </tr>
+        </thead>
+        <tbody id="services-body">
+        	<% if @maintenance != nil %>
+        		<% for event in @maintenance %>
+                	<tr>
+                		<td class="status"><%= event.start.strftime("N j, fA")%><br />
+                			<div style="font-size:11px;">
+                				<a href=event.service_id style="border-bottom: dotted;border-bottom-width: 1px; text-decoration: none;">(more info)</a>
+                			</div>
+                		</td>
+                		<td class="status"><% event.event_type %>
+                			<div class="upcoming "+event.event_type><%=event.event_type%></div>
+
+                			<div id="service" style="font-weight: bold;">
+                				<%= event.service.name %></div>
+                				<%=event.message%>
+                		</td>
+                	</tr>
+                <%end%>
+            <%else%>
+            <tr>
+        		<td colspan=3 class="status" >No Scheduled Maintenance</td>
+        	</tr>
+        	<%end%>
+        </tbody>
+  </table>
+
