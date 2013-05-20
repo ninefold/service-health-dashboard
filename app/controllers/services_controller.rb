@@ -28,15 +28,17 @@ class ServicesController < ApplicationController
       format.html
       format.json { render json: @service }
     end
+
   end
 
   def slugshow
     @service = Service.where('slug = ?',params[:slug]).last
     @events = Event.where("service_id="+@service.id.to_s)
     respond_to do |format|
-      format.html
+      format.html { render :template => 'services/show' }
       format.json { render json: @service }
     end
+    
   end
 
   def nf1

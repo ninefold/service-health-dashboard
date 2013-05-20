@@ -5,7 +5,7 @@
 #
 #   cities = City.create([{ "name"=> 'Chicago' }, { "name"=> 'Copenhagen' }])
 #   Mayor.create("name"=> 'Emanuel', city: cities.first)
-eventtypes = EventType.create(
+EventType.create(
   [
     {"name"=>"Critical"},
     {"name"=>"Hazard"},
@@ -22,6 +22,16 @@ severities = Severity.create(
     {"name"=> 'Critical', "val"=> 50}
   ]
 )
+
+
+
+#Status.create! name:         'Normal', 
+#               slug:         'normal', 
+#               description:  'The service is up or was up during this entire period', 
+#               severity_id:  1,
+#               image:        'tick-circle'
+
+
 
 statuses = Status.create(
   [
