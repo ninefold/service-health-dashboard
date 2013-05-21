@@ -10,10 +10,10 @@ ServiceHealthDashboard::Application.routes.draw do
   resources :events
   resources :services
   resources :statuses
-
-  match ':slug', to: 'Services#slugshow', as: 'services_slug_path'
   match '/1', to: 'Services#nf1', as: 'nf1_path'
   match '/2', to: 'Services#nf2', as: 'nf2_path'
+  match ':slug', to: 'Services#slugshow', as: 'services_slug_path'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
