@@ -21,53 +21,7 @@
 	      </thead>
 	      <tbody id="services-body">
 			<% for service in @nf1_services %>
-				<tr>
-					<td><a href="/"+service.slug><%=service.name%></a></td>
-
-					<% service.x_days_statuses(3).each_with_index do |e,i| %>
-						<% if e == nil %>
-							<% if i == 0 %>
-								<td class="status" style="width: 100px;">
-									<div>
-										<%= image_tag("status/"+service.current_status().image+".png", :alt => service.current_status().name)%>
-									</div>
-								</td>
-							<% else %>
-								<td class="status" style="width: 100px;">
-									<div>
-										<%= image_tag("status/tick-circle.png") %>
-									</div>
-								</td>
-							<% end %>
-						<% else %>
-                            <% if i == 0 %>
-                            	<td class="status" style="width: 100px;">
-									<div>
-										<%= image_tag("status/"+service.current_status().image+".png", :alt => service.current_status().name)%>
-										<% if service.current_status().image != 'tick-circle' %>
-                							<div style="font-size:9px;">
-                								<a href="/"+service.id+"#"+service.current_status().id style="border-bottom: dotted;border-bottom-width: 1px; text-decoration: none;">(more info)</a>
-                							</div>
-                						<% end %>
-									</div>
-								</td>
-
-							<% else %>
-								<td class="status" style="width: 100px;">
-									<div>
-										<%= image_tag("status/"+e.status.image+".png", :alt => e.status.name) %>
-										<% if e.status.image != 'tick-circle' %>
-                							<div style="font-size:9px;">
-                								<a href="/<%=service.slug%>#<%=e.status.id%>" style="border-bottom: dotted;border-bottom-width: 1px; text-decoration: none;">(more info)</a>
-                							</div>
-                						<% end %>
-									</div>
-								</td>
-
-							<% end %>
-						<% end %>
-					<% end %>
-				</tr>
+				<%= render partial: 'servicestable', :locals=> {service: service} %>
 			<% end %>     
 		</tbody>
 	</table>
