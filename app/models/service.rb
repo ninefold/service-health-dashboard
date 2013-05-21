@@ -1,5 +1,6 @@
 class Service < ActiveRecord::Base
 	belongs_to :dependent
+  has_many :events
 	attr_accessible :description, :name, :order, :slug, :version, :invisible, :service_id
 
 	def current_status()

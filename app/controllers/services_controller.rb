@@ -8,11 +8,7 @@ class ServicesController < ApplicationController
 
   	@statuses = Status.all
 
-  	@maintenance = Event.where(
-      'invisible=? AND start BETWEEN ? AND ?',
-      true, 
-      DateTime.now.beginning_of_day(), 
-      DateTime.now+90.days).order('start').last
+  	@maintenance = Event.maintenance
 
     days_to_go_back = 3
     @day = DateTime.now - days_to_go_back
