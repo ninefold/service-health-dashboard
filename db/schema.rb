@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(:version => 20130513010205) do
     t.datetime "start"
     t.boolean  "informational"
     t.integer  "event_type_id"
-    t.boolean  "invisible"
+    t.boolean  "invisible", default: false
     t.integer  "incident_id"
     t.text     "description"
     t.datetime "created_at",    :null => false

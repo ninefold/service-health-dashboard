@@ -38,7 +38,6 @@ Status.create! name:         'Maintenance',
                severity_id:  2,
                image:        'wrench'
 
-8yKUz8veqwROP
 Status.create! name:         'Service Disruption', 
                slug:         'service-disruption', 
                description:  'The service is experiencing an issue or experienced an issue at some point during this period', 
