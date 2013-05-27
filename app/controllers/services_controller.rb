@@ -4,8 +4,6 @@ class ServicesController < ApplicationController
 
   	@nf2_services = Service.where('version=2 AND invisible=false').all
 
-    @date = Date.today.strftime("%d/%m")
-
   	@statuses = Status.all
 
   	@maintenance = Event.maintenance
@@ -20,6 +18,7 @@ class ServicesController < ApplicationController
   def show
     @service = Service.find(params[:id])
     @events = Event.where("service_id="+@service.id.to_s)
+
     respond_to do |format|
       format.html
       format.json { render json: @service }
@@ -40,11 +39,13 @@ class ServicesController < ApplicationController
   def nf1
     @nf1_services = Service.where('version=1 AND invisible=false').all
     @statuses = Status.all
-    @maintenance = Event.where(
-      'invisible=? AND start BETWEEN ? AND ?',
-      true, 
-      DateTime.now.beginning_of_day(), 
-      DateTime.now+90.days).order('start').last
+
+    @maintenance = Event.includes(:service).
+                         where(:events=> {:invisible=>false}).
+                         where(start: DateTime.now.beginning_of_day()..DateTime.now+90.days).
+                         where(status_id: 2).
+                         where(:services => {:version=> 1}).
+                         order('start')
 
     days_to_go_back = 3
     @day = DateTime.now - days_to_go_back
@@ -56,11 +57,12 @@ class ServicesController < ApplicationController
   def nf2
     @nf2_services = Service.where('version=2 AND invisible=false').all
     @statuses = Status.all
-    @maintenance = Event.where(
-      'invisible=? AND start BETWEEN ? AND ?',
-      true, 
-      DateTime.now.beginning_of_day(), 
-      DateTime.now+90.days).order('start').last
+    @maintenance = Event.includes(:service).
+                         where(:events=> {:invisible=>false}).
+                         where(start: DateTime.now.beginning_of_day()..DateTime.now+90.days).
+                         where(status_id: 2).
+                         where(:services => {:version=> 2}).
+                         order('start')
       days_to_go_back = 3
 
     @day = DateTime.now - days_to_go_back

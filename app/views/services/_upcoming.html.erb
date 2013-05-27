@@ -9,20 +9,26 @@
         <tbody id="services-body">
         	<% if @maintenance != nil %>
         		<% for event in @maintenance %>
-                	<tr>
-                		<td class="status"><%= event.start.strftime("N j, fA")%><br />
-                			<div style="font-size:11px;">
-                				<a href=event.service_id style="border-bottom: dotted;border-bottom-width: 1px; text-decoration: none;">(more info)</a>
-                			</div>
-                		</td>
-                		<td class="status"><% event.event_type %>
-                			<div class="upcoming "+event.event_type><%=event.event_type%></div>
+                    <% if event!= nil %>
+                	   <tr>
+                    		<td class="status"><%= event.start.strftime("%b %d, %I:%M%p")%><br />
+                    			<div style="font-size:11px;">
+                    				<a href=event.service_id style="border-bottom: dotted;border-bottom-width: 1px; text-decoration: none;">(more info)</a>
+                    			</div>
+                    		</td>
 
-                			<div id="service" style="font-weight: bold;">
-                				<%= event.service.name %></div>
-                				<%=event.message%>
-                		</td>
-                	</tr>
+                    		<td class="status">
+                                <% if event.event_type != nil %>
+                                    <% event.event_type %>
+                                    <div class="upcoming "+event.event_type><%=event.event_type%></div>
+                                <%end%>
+
+                    			<div id="service" style="font-weight: bold;">
+                    				<%= event.service.name %></div>
+                    				<%=event.message%>
+                    		</td>
+                    	</tr>
+                    <% end %>
                 <%end%>
             <%else%>
             <tr>
