@@ -5,7 +5,7 @@ class Service < ActiveRecord::Base
 
 	def current_status()
 		e = Event.where("service_id = ?", self.id.to_s).
-              where("start < ? ", Time.zone.now.beginning_of_day()).
+              where("start < ? ", DateTime.now).
               order("start").last
     if e == nil
       e = most_recent_event(DateTime.now)
@@ -27,9 +27,9 @@ class Service < ActiveRecord::Base
     events = Event.where('service_id = ?',self.id.to_s).
                   where('invisible = ?', false). 
                   where(start: date.beginning_of_day()..date.end_of_day()).
-                  #includes(:event).
-                  #maximum("status_id").
-                  last
+
+                  order("status_id DESC").
+                  first
 
     if events == nil
       events = self.most_recent_event(date)
