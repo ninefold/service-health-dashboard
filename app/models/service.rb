@@ -3,9 +3,6 @@ class Service < ActiveRecord::Base
   has_many :events
 	attr_accessible :description, :name, :order, :slug, :version, :invisible, :service_id
 
-#todo make sure we're not grabbing any events from the future
-#todo future stuffs
-
 	def current_status
 		e = Event.where('service_id = ?', self.id.to_s).
               where('start < ? ', DateTime.now).
@@ -14,7 +11,7 @@ class Service < ActiveRecord::Base
       e = most_recent_event(DateTime.now)
     end
 
-    e == nil ? Status.find(1) : e.status
+    e
 
 	end
 
