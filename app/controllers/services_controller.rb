@@ -10,14 +10,14 @@ class ServicesController < ApplicationController
 
     days_to_go_back = 3
     @day = DateTime.now - days_to_go_back
-    @days = (@day .. @day + days_to_go_back).to_a { |date| "#{date}" }
+    @days = (@day .. @day + days_to_go_back).to_a { |date| '#{date}' }
 
     @days.reverse!
   end
 
   def show
     @service = Service.find(params[:id])
-    @events = Event.where("service_id="+@service.id.to_s)
+    @events = Event.where('service_id='+@service.id.to_s)
 
     respond_to do |format|
       format.html
@@ -28,7 +28,7 @@ class ServicesController < ApplicationController
 
   def slugshow
     @service = Service.where('slug = ?',params[:slug]).last
-    @events = Event.where("service_id="+@service.id.to_s)
+    @events = Event.where('service_id='+@service.id.to_s)
     respond_to do |format|
       format.html { render :template => 'services/show' }
       format.json { render json: @service }
@@ -49,7 +49,7 @@ class ServicesController < ApplicationController
 
     days_to_go_back = 3
     @day = DateTime.now - days_to_go_back
-    @days = (@day .. @day + days_to_go_back).to_a { |date| "#{date}" }
+    @days = (@day .. @day + days_to_go_back).to_a { |date| '#{date}' }
 
     @days.reverse!
   end
@@ -66,7 +66,7 @@ class ServicesController < ApplicationController
       days_to_go_back = 3
 
     @day = DateTime.now - days_to_go_back
-    @days = (@day .. @day + days_to_go_back).to_a { |date| "#{date}" }
+    @days = (@day .. @day + days_to_go_back).to_a { |date| '#{date}' }
 
     @days.reverse!
   end
