@@ -13,6 +13,13 @@ class Service < ActiveRecord::Base
           order('start')
   end
 
+  def self.maintenance(service)
+    Event.where(:events=> {:invisible=>false}).
+          where(start: DateTime.now.beginning_of_day()..DateTime.now+90.days).
+          where(status_id: 2).
+          where(:service_id => service).
+          order('start')
+  end
 
 	def current_status
 		e = Event.where('service_id = ?', self.id.to_s).

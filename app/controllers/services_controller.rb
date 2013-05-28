@@ -3,19 +3,14 @@ class ServicesController < ApplicationController
     days_to_go_back = 3
     @day = DateTime.now - days_to_go_back
     @days = (@day .. @day + days_to_go_back).to_a { |date| '#{date}' }
-
     @days.reverse!
   end
 
   def index
   	@nf1_services = Service.where('version=1 AND invisible=false').all
-
   	@nf2_services = Service.where('version=2 AND invisible=false').all
-
   	@statuses = Status.all
-
   	@maintenance = Event.maintenance
-
     days = date_range
     
   end
@@ -24,6 +19,7 @@ class ServicesController < ApplicationController
     @service = Service.find(params[:id])
     @events = Event.where('service_id='+@service.id.to_s).
                     where('invisible = ?', false)
+    @maintenance = Service.maintenance(service_id=@service.id)
 
     respond_to do |format|
       format.html
@@ -35,20 +31,18 @@ class ServicesController < ApplicationController
   def slugshow
     @service = Service.where('slug = ?',params[:slug]).last
     @events = Event.where('service_id='+@service.id.to_s)
+    @maintenance = Service.maintenance(service_id=@service.id)
 
     respond_to do |format|
       format.html { render :template => 'services/show' }
       format.json { render json: @service }
     end
-    
   end
 
   def nf1
     @nf1_services = Service.where('version=1 AND invisible=false').all
     @statuses = Status.all
-
     @maintenance = Service.maintenance(nf_version=1)
-
     days = date_range
   end
 
@@ -56,7 +50,6 @@ class ServicesController < ApplicationController
     @nf2_services = Service.where('version=2 AND invisible=false').all
     @statuses = Status.all
     @maintenance = Service.maintenance(nf_version=2)
-  
     days = date_range
   end
 
