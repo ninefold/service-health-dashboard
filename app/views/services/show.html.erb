@@ -11,37 +11,21 @@
       </thead>
       <tbody id="events-tbody">
         <% if @events %>
-          <% for e in @events %>
-              <% if e.start > DateTime.now %>
-                <tr>
-                  <td colspan=3 style="background-color: #ddd;">Future events</td>
-                </tr>
-              <% else %>
-                <tr>
-                  <td colspan=3 style="background-color: #ddd;">Past events</td>
-                </tr>
-              <% end %>
-            <tr>
-              <% if e.description %>
-                <td><%= e.start.strftime("%b %d, %I:%M%P")  %> <a id="<%= e.id %>"/><br /><div style="font-size:11px;"><a href="/<%=e.id%>" style="border-bottom: dotted;border-bottom-width: 1px; text-decoration: none;">(more info)</a></div></td>
-              <% else %>
-                <td><%= e.start.strftime("%b %d, %I:%M%P") %> <a id="<%= e.id%>"/></td>
-                  <td class="status highlight">
-                    <% if e.informational %>
-                      <img src="{{ STATIC_URL }}images/status/information.png" alt="Information">
-                    <% else %>
-                      <%= image_tag("status/"+e.status.image+".png", alt: e.status.image)%>
-                    <% end %>
-                  </td>
-                  <td><%= e.message%></td>
-                </tr>
-              <% end %>
+          <td colspan=3 style="background-color: #ddd;">Past events</td>
+          <%= render partial: 'eventstable', :locals=> {events: @events} %>
+        <% else %>
+          <tr>
+            <td colspan=3>No events to display</td>
+          </tr>
         <% end %>
-	    <% else %>
-        <tr>
-          <td colspan=3>No events to display</td>
-        </tr>
-      <% end %>
+        <% if @maintenance %>
+          <td colspan=3 style="background-color: #ddd;">Future events</td>
+          <%= render partial: 'eventstable', :locals=> {events: @maintenance} %>
+        <% else %>
+          <tr>
+            <td colspan=3>No events to display</td>
+          </tr>
+        <% end %>
       </tbody>
     </table>
     <div id="current_time"><small><b>All time shown is Sydney, Australia time.</b><br /><i>Current time:  <%= Time.zone.now.strftime("%b %d, %I:%M%P") %> </i></small></div>
