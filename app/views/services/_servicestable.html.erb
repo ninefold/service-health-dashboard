@@ -26,7 +26,7 @@
               <%= image_tag("status/"+e.status.image+".png", alt: e.status.name) %>
                 <% if e.status.image != 'tick-circle' %>
                   <div style="font-size:9px;">
-                    <a href="/<%=service.slug%>#<%=e.status.id%>" style="border-bottom: dotted;border-bottom-width: 1px; text-decoration: none;">(more info)</a>
+                    <a href="/<%=service.slug%>" style="border-bottom: dotted;border-bottom-width: 1px; text-decoration: none;">(more info)</a>
                   </div>
                 <% end %>
             </div>

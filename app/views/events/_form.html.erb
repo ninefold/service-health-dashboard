@@ -35,8 +35,19 @@
 
   </div>
 
+  <div class="field">
+    <%= f.label :event, "Event Type" %><br />
+    <%= f.collection_select :event_type_id, EventType.all, :id, :name, :include_blank => true %>
 
+  </div>
+
+  <div class="field">
+    <%= f.label :invisible, "Invisible" %><br />
+    <%= f.check_box :invisible %>
+
+  </div>
+  <br />
   <div class="actions">
     <%= f.submit %>
-  </div>
+  </div><br />
 <% end %>

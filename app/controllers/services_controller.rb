@@ -1,4 +1,12 @@
 class ServicesController < ApplicationController
+  def date_range
+    days_to_go_back = 3
+    @day = DateTime.now - days_to_go_back
+    @days = (@day .. @day + days_to_go_back).to_a { |date| '#{date}' }
+
+    @days.reverse!
+  end
+
   def index
   	@nf1_services = Service.where('version=1 AND invisible=false').all
 
@@ -8,16 +16,14 @@ class ServicesController < ApplicationController
 
   	@maintenance = Event.maintenance
 
-    days_to_go_back = 3
-    @day = DateTime.now - days_to_go_back
-    @days = (@day .. @day + days_to_go_back).to_a { |date| '#{date}' }
-
-    @days.reverse!
+    days = date_range
+    
   end
 
   def show
     @service = Service.find(params[:id])
-    @events = Event.where('service_id='+@service.id.to_s)
+    @events = Event.where('service_id='+@service.id.to_s).
+                    where('invisible = ?', false)
 
     respond_to do |format|
       format.html
@@ -29,6 +35,7 @@ class ServicesController < ApplicationController
   def slugshow
     @service = Service.where('slug = ?',params[:slug]).last
     @events = Event.where('service_id='+@service.id.to_s)
+
     respond_to do |format|
       format.html { render :template => 'services/show' }
       format.json { render json: @service }
@@ -40,35 +47,17 @@ class ServicesController < ApplicationController
     @nf1_services = Service.where('version=1 AND invisible=false').all
     @statuses = Status.all
 
-    @maintenance = Event.includes(:service).
-                         where(:events=> {:invisible=>false}).
-                         where(start: DateTime.now.beginning_of_day()..DateTime.now+90.days).
-                         where(status_id: 2).
-                         where(:services => {:version=> 1}).
-                         order('start')
+    @maintenance = Service.maintenance(nf_version=1)
 
-    days_to_go_back = 3
-    @day = DateTime.now - days_to_go_back
-    @days = (@day .. @day + days_to_go_back).to_a { |date| '#{date}' }
-
-    @days.reverse!
+    days = date_range
   end
 
   def nf2
     @nf2_services = Service.where('version=2 AND invisible=false').all
     @statuses = Status.all
-    @maintenance = Event.includes(:service).
-                         where(:events=> {:invisible=>false}).
-                         where(start: DateTime.now.beginning_of_day()..DateTime.now+90.days).
-                         where(status_id: 2).
-                         where(:services => {:version=> 2}).
-                         order('start')
-      days_to_go_back = 3
-
-    @day = DateTime.now - days_to_go_back
-    @days = (@day .. @day + days_to_go_back).to_a { |date| '#{date}' }
-
-    @days.reverse!
+    @maintenance = Service.maintenance(nf_version=2)
+  
+    days = date_range
   end
 
 

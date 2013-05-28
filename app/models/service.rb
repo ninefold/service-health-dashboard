@@ -3,9 +3,21 @@ class Service < ActiveRecord::Base
   has_many :events
 	attr_accessible :description, :name, :order, :slug, :version, :invisible, :service_id
 
+
+  def self.maintenance(nf_version)
+    Event.includes(:service).
+          where(:events=> {:invisible=>false}).
+          where(start: DateTime.now.beginning_of_day()..DateTime.now+90.days).
+          where(status_id: 2).
+          where(:services => {:version=> nf_version}).
+          order('start')
+  end
+
+
 	def current_status
 		e = Event.where('service_id = ?', self.id.to_s).
               where('start < ? ', DateTime.now).
+              where('invisible = ?', false).
               order('start').last
     if e == nil
       e = most_recent_event(DateTime.now)
