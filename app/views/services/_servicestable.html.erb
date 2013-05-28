@@ -8,7 +8,8 @@
               <%= image_tag("status/"+service.current_status.image+".png", alt: service.current_status().name)%>
                 <% if service.current_status().image != 'tick-circle' %>
                   <div style="font-size:9px;">
-                    <a href="/service.id#"+service.current_status.id style="border-bottom: dotted;border-bottom-width: 1px; text-decoration: none;">(more info)</a>
+                    <% link_text = "/" + service.slug + "#" + service.current_status().id.to_s %>
+                    <a href="<%= link_text %>" style="border-bottom: dotted;border-bottom-width: 1px; text-decoration: none;">(more info)</a>
                   </div>
                 <% end %>
             </div>
@@ -27,7 +28,8 @@
               <%= image_tag("status/"+service.current_status().image+".png", alt: service.current_status().name)%>
                 <% if service.current_status().image != 'tick-circle' %>
                   <div style="font-size:9px;">
-                    <a href="/service.id#service.current_status().id" style="border-bottom: dotted;border-bottom-width: 1px; text-decoration: none;">(more info)</a>
+                    <% link_text = "/" + service.slug + "#" + service.current_status().id.to_s %>
+                    <a href="<%=link_text%>" style="border-bottom: dotted;border-bottom-width: 1px; text-decoration: none;">(more info)</a>
                   </div>
                 <% end %>
           </div>
