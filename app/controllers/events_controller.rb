@@ -1,3 +1,6 @@
+require 'time'
+
+
 class EventsController < ApplicationController
   def index
   	@events = Event.all
@@ -12,8 +15,15 @@ class EventsController < ApplicationController
     end
   end  	
 
+
+
   def create
     @event = Event.new(params[:event])
+
+    if @event.start > DateTime.now
+      es = EventScheduler
+      Resque.enqueue_in((@event.start - DateTime.now).abs.round, es, @event)
+    end
 
     respond_to do |format|
       if @event.save

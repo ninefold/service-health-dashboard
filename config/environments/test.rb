@@ -34,5 +34,5 @@ ServiceHealthDashboard::Application.configure do
 
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
-  config.time_zone = 'Sydney'
+  config.time_zone = 'Australia/Sydney'
 end
