@@ -10,16 +10,16 @@
         </tr>
       </thead>
       <tbody id="events-tbody">
-        <% if @events %>
-          <td colspan=3 style="background-color: #ddd;">Past events</td>
+        <td colspan=3 style="background-color: #ddd;">Past events</td>
+        <% unless @events.empty? %>
           <%= render partial: 'eventstable', :locals=> {events: @events} %>
         <% else %>
           <tr>
             <td colspan=3>No events to display</td>
           </tr>
         <% end %>
-        <% if @maintenance %>
-          <td colspan=3 style="background-color: #ddd;">Future events</td>
+        <td colspan=3 style="background-color: #ddd;">Future events</td>
+        <% unless @maintenance.empty? %>   
           <%= render partial: 'eventstable', :locals=> {events: @maintenance} %>
         <% else %>
           <tr>
