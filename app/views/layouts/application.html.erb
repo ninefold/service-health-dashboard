@@ -10,11 +10,16 @@
 	<title>Service Health Dashboard</title>
 	<%= stylesheet_link_tag    "reset", :media => "all" %>
 	<%= stylesheet_link_tag    "style", :media => "all" %>
-	<%= stylesheet_link_tag    "brand.css", :media => "all" %>
-	<%= stylesheet_link_tag    "font.css", :media => "all" %>
+	<%= stylesheet_link_tag    "brand", :media => "all" %>
+	<%= stylesheet_link_tag    "font", :media => "all" %>
+	<%= stylesheet_link_tag    "jquery-ui", :media => "all" %>
+	<%= stylesheet_link_tag    "jquery-ui-datepicker-addon", :media => "all" %>
+
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js">
 </script>
 	<%= javascript_include_tag "application" %>
+	<%= javascript_include_tag "jquery-ui" %>
+	<%= javascript_include_tag "jquery-ui-datepicker-addon" %>
 	<%= csrf_meta_tags %>
 
 

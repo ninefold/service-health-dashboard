@@ -14,7 +14,7 @@
               <%= image_tag("status/"+service.current_status.status.image+".png", alt: service.current_status.status.name)%>
                 <% if service.current_status.status.image != 'tick-circle' %>
                   <div style="font-size:9px;">
-                    <% link_text = "/" + service.slug %>
+                    <% link_text = "/" + service.slug + "?status=" + service.current_status.id.to_s %>
                     <a href="<%= link_text %>" style="border-bottom: dotted;border-bottom-width: 1px; text-decoration: none;">(more info)</a>
                   </div>
                 <% end %>
@@ -26,7 +26,7 @@
               <%= image_tag("status/"+e.status.image+".png", alt: e.status.name) %>
                 <% if e.status.image != 'tick-circle' %>
                   <div style="font-size:9px;">
-                    <a href="/<%=service.slug%>" style="border-bottom: dotted;border-bottom-width: 1px; text-decoration: none;">(more info)</a>
+                    <a href="/<%=service.slug%>?status=<%=e.id%>" style="border-bottom: dotted;border-bottom-width: 1px; text-decoration: none;">(more info)</a>
                   </div>
                 <% end %>
             </div>

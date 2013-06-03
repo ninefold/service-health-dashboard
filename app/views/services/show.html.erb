@@ -31,10 +31,3 @@
     <div id="current_time"><small><b>All time shown is Sydney, Australia time.</b><br /><i>Current time:  <%= Time.zone.now.strftime("%b %d, %I:%M%P") %> </i></small></div>
     <div id="go_back" style="margin-top: 20px;"><a href="/"><< Back to Overview </a></div>
 </div>
-
-<script>
-$(function() {
-      $('a[id="' + window.location.hash.replace(/#/, '') + '"]').closest('tr').addClass('moreinfo')
-});</script>
-
-

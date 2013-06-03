@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :start, "Start" %><br />
-    <%= f.datetime_select :start, :default => DateTime.now%>
+    <%= f.text_field :start%>
   </div>
 
   <div class="field">
@@ -51,3 +51,15 @@
     <%= f.submit %>
   </div><br />
 <% end %>
+
+<script type="text/javascript">
+  $(function() {
+    $('#event_start').datetimepicker({
+      showOn: "button",
+      buttonImage: "/assets/calendar.png",
+      buttonImageOnly: true,
+      dateFormat: "yy MM d",
+      timeFormat: "h:mmtt" 
+    })
+  });
+</script>

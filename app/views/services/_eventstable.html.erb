@@ -1,5 +1,9 @@
 <% for e in events %>
-  <tr>
+  <% if request.params[:status].to_i == e.id %>
+    <tr class="moreinfo">
+  <%else%>
+    <tr>
+  <%end%>
     <% if e.description %>
       <td>
         <%= e.start.strftime("%b %d, %I:%M%P")  %> <a id="<%= e.id %>"/><br />
