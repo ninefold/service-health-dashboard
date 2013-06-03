@@ -15,26 +15,16 @@ class ServicesController < ApplicationController
     
   end
 
+
+
   def show
-    @service = Service.find(params[:id])
-    @events = Event.where('service_id='+@service.id.to_s).
-                    where('start < ', DateTime.now).
-                    where('invisible = ?', false)
-    @maintenance = Service.maintenance(service_id=@service.id)
-
-    respond_to do |format|
-      format.html
-      format.json { render json: @service }
-    end
-
-  end
-
-  def slugshow
     @service = Service.where('slug = ?',params[:slug]).last
     @events = Event.where('service_id='+@service.id.to_s).
                     where('start < ?', DateTime.now).
-                    where('invisible = ?', false)
-    @maintenance = Service.maintenance(service_id=@service.id)
+                    where('invisible = ?', false).
+                    order('start DESC')
+    @maintenance = Service.maintenance(service_id=@service.id).
+                    order('start DESC')
 
     respond_to do |format|
       format.html { render :template => 'services/show' }
