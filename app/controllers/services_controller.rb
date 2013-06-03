@@ -23,7 +23,7 @@ class ServicesController < ApplicationController
                     where('start < ?', DateTime.now).
                     where('invisible = ?', false).
                     order('start DESC')
-    @maintenance = Service.maintenance(service_id=@service.id).
+    @maintenance = Service.maintenance(service=@service.id).
                     order('start DESC')
 
     respond_to do |format|
