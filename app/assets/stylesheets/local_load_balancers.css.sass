@@ -1,0 +1,54 @@
+.load-balancers
+
+  .load-balancer-servers
+    :padding 0
+
+    tr:first-child
+      td
+        :border-top none
+
+  .notifications
+    :margin 0
+    :padding 0
+
+    .status
+      :list-style none
+      :padding-left 34px
+      :min-height 34px
+      :background-repeat no-repeat
+      :background-position left center
+
+      &.complete
+        :background-image url(image_path('bg-green-tick.png'))
+
+      &.failed
+        :background-image url(image_path('icon-error.png'))
+
+  .destroying td
+    :color #888
+
+  .mask
+    :position absolute
+    :color white
+    :text-align center
+
+    .background
+      :position absolute
+      :top 0
+      :bottom 0
+      :left 0
+      :right 0
+      :background-color black
+      :opacity .5
+
+    .message
+      :margin-left 10px
+      :position relative
+
+    .spin
+      :display inline-block
+      :width 16px
+      :height 12px
+
+      div div div
+        :background-color white !important

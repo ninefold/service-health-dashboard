@@ -34,5 +34,8 @@ ServiceHealthDashboard::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
   config.time_zone = 'Australia/Sydney'
+  
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 end

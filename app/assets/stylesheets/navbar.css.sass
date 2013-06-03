@@ -1,0 +1,79 @@
+.container, .navbar .container
+  :width 860px
+
+.navbar
+  :margin-bottom 0
+
+.navbar-inner
+  :background #000
+  :filter none
+  :border-radius 0
+
+  .container
+    :position relative
+
+  .brand
+    :padding-top 20px
+    :padding-left 75px
+    :padding-bottom 20px
+
+    img
+      :width 115px
+      :max-width 115px
+
+  .nav
+    :float right
+    :font-size 18px
+    :margin-right 0
+    :padding-top 95px
+
+    li
+      :padding-left 35px
+
+      a
+        :color #bbb
+        :padding-left 0
+        :padding-right 0
+        :font-weight 400
+
+nav.user-nav
+  :background #222
+  :border-radius 3px
+  :list-style none
+  :position absolute
+  :padding 6px 10px
+  :right 0
+  :top 9px
+  :z-index 10
+
+  li
+    :display inline-block
+    :margin-left 15px
+
+    &:first-child
+      :margin-left 0
+
+    a
+      :display inline-block
+      :vertical-align middle
+
+    img
+      :display inline-block
+      :border-radius 2px
+      :margin-right 5px
+      :vertical-align middle
+
+    a
+      :color white
+
+    .notifications
+      :background #efefef
+      :border-radius 2px
+      :color black
+      :margin-right 3px
+      :padding 0 5px
+
+.navbar .nav .active > a, .navbar .nav .active > a:hover
+  :background transparent
+
+

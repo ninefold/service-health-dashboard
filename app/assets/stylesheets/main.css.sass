@@ -1,0 +1,168 @@
+-webkit-keyframes notice-popup
+  0%
+    :-webkit-transform translate(0,63px)
+  80%
+    :-webkit-transform translate(0,-10px)
+  100%
+    :-webkit-transform translate(0,0)
+
+.notice
+  :min-height 31px
+  :border 0
+  :border-radius 0
+  :margin-left 240px
+  :margin-bottom 37px
+  :padding 9px 10px
+
+  h4
+    :font-size 12px
+    :line-height 14px
+    :text-transform uppercase
+
+  h3
+    :font-size 16px
+    :font-weight 300
+    :line-height 19px
+
+  &.blank
+    :margin-bottom 0
+
+  &.alert, &.error
+    :background #fadf73
+    :color black
+    :text-decoration none
+    :-webkit-animation notice-popup 250ms ease-in
+
+  &.error
+    :background #d42e2e
+    :color white
+
+#main
+  :float right
+  :width 620px
+
+  header
+    :border-bottom 3px solid $servers
+    :margin-bottom 18px
+    :position relative
+
+    #app-status, #server-status
+
+      a.btn
+        :margin-top 17px
+
+    a.btn
+      :margin-top 8px
+
+    a.view-options
+      :background #e3f3fb url(image_path('icon-view-options.png')) no-repeat 5px 6px
+      :background-size 15px 11px
+      :border 1px solid #c3e5f7
+      :border-radius 5px
+      :font-size 16px
+      :line-height 21px
+      :padding 0px 5px 2px 23px
+      :position absolute
+      :right 0
+      :top 15px
+
+    h4
+      :color $servers
+      :font-size 18px
+      :position absolute
+      :top -18px
+
+    h1
+      :display inline
+
+      label
+        :color #585858
+        :display inline
+        :font-size 15px
+    a
+      :position absolute
+      :right 0
+      :top 13px
+
+
+    div#server-status
+      :float right
+      :width 200px
+      :line-height 10px
+      :padding-top 15px
+
+      a.btn
+        :float right
+        :position static
+        :margin-right 5px
+        :margin-top 0
+
+    .btn
+      :margin-right 0
+      :margin-left 10px
+
+  .header-error
+    :background #f8e0e2 url(image_path('icon-error-large.png')) no-repeat 15px 9px
+    :border-bottom 1px solid #f6abb1
+    :color #c81b2a
+    :margin -18px 0 18px 0
+    :padding 9px 15px 9px 72px
+
+    h3
+      :color #c81b2a
+      :margin 0
+      :line-height 23px
+
+  h1
+    :color $servers
+    :font-size 34px
+    :font-weight normal
+    :line-height 48px
+
+    span.status
+      :color #cacbcb
+
+  h2
+    :border-bottom 3px solid #cacbcb
+    :clear both
+    :font-size 22px
+    :margin 18px 0
+
+  .tabbable
+    :background #ededed
+    :font-size 14px
+    :margin-bottom 36px
+    :padding 9px 10px 0 10px
+
+    .nav-tabs
+      :margin 0
+
+      a
+        :background #666666
+        :color #cfcfcf
+        :border-radius 0
+        :border none
+        :margin-right 10px
+
+    li.active
+
+      a
+        :background white
+        :color #0c0c0c
+
+  dl
+    dt
+      :clear left
+      :color #9a9a9a
+      :float left
+      :font-weight normal
+      :line-height 26px
+      :width 25%
+
+    dd
+      :display table-cell
+      :float left
+      :line-height 26px
+      :margin-left 0
+      :width 75%
+

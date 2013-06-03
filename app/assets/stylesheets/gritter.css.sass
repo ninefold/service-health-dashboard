@@ -1,0 +1,51 @@
+.gritter-item
+  :color black
+  :font-family "omnes-pro", "Helvetica Neue"
+  :font-weight normal
+  :background #d4ebf8
+
+  p
+    :font-size 15px
+    :line-height 20px
+
+.gritter-title
+  :font-size 18px
+  :font-weight 500
+  :line-height 22px
+  :padding-bottom 0
+  :text-shadow none
+
+.gritter-top, .gritter-bottom
+  :display none
+
+.in-page-notification .gritter-without-image .icon
+  :top 5px
+
+.gritter-item-wrapper
+  :width 225px
+
+.in-page-notification
+
+  .gritter-without-image
+    :cursor pointer
+    :padding-left 40px
+
+    .icon
+      :position absolute
+      :top 20px
+      :left 10px
+      :width 34px
+      :height 34px
+      :background-repeat no-repeat
+      :background-position center
+
+  &.complete .icon
+    :background-image url(image_path('bg-green-tick.png'))
+
+  &.failed
+
+    .icon
+      :background-image url(image_path('icon-error.png'))
+
+    .gritter-item
+      :background #f8e0e2

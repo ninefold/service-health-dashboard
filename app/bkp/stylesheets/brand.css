@@ -1,0 +1,210 @@
+.navbar-inner {
+    background-color: #000000;
+    border-radius: 0 0 0 0;
+    min-height: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), 0 -1px 0 rgba(0, 0, 0, 0.1) inset;
+    height: 143px;
+}
+
+div.upcoming {
+    border: 1px solid #000000;
+    clear: none;
+    float: right;
+    font-size: 12px;
+    height: 16px;
+    margin-bottom: 0;
+    padding: 3px;
+    position: relative;
+    width: 50px;
+    margin-left:20px;
+}
+
+tr.moreinfo, tr.moreinfo td.highlight {
+background-color: rgb(255, 255, 134) !important;
+}
+
+.Hazard {
+    background-color: yellow;
+}
+.Critical {
+    background-color: red;
+    color: #fff;
+}
+.Special {
+    background-color: #2A9DDB;
+}
+
+img {
+    border: 0 none;
+    max-width: 100%;
+    vertical-align: middle;
+}
+
+.navbar .brand {
+    color: #999999;
+    font-size: 20px;
+    font-weight: 200;
+    line-height: 1;
+}
+
+.navbar {
+    margin-bottom: 0;
+    overflow: visible;
+    height: 143px;
+    display:block;
+
+}
+
+.container:after {
+    clear: both;
+}
+.container:before, .container:after {
+    content: "";
+    display: table;
+}
+.container:before, .container:after {
+    content: "";
+    display: table;
+}
+.navbar-inner .container {
+    position: relative;
+}
+.container, .navbar .container {
+    width: 860px;
+}
+.container {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.navbar .brand {
+    color: #999999;
+    display: block;
+    float: left;
+    font-size: 20px;
+    font-weight: 200;
+    line-height: 1;
+    margin-left: -20px;
+}
+
+
+.navbar-inner .brand {
+    padding-bottom: 20px;
+    padding-left: 75px;
+    padding-top: 20px;
+}
+
+#heading {
+/* border-bottom: 3px solid #2A9DDB; */
+margin-bottom: 18px;
+position: relative;
+display: inline;
+font-size:34px;
+color: #2A9DDB;
+font-weight: normal;
+line-height: 48px;
+}
+
+.navbar .nav {
+position: relative;
+left: 0;
+display: block;
+float: left;
+margin: 0 10px 0 0;
+}
+
+.nav {
+margin-bottom: 18px;
+margin-left: 0;
+list-style: none;
+}
+
+.navbar .nav>li>a {
+float: none;
+padding: 9px 10px 11px;
+line-height: 19px;
+color: #999999;
+text-decoration: none;
+text-shadow: 0 -1px 0 rgba(0,0,0,0.25);
+}
+
+.navbar-inner .nav {
+float: right;
+font-size: 18px;
+margin-right: 0;
+padding-top: 95px;
+}
+
+
+.navbar-inner .nav li a {
+color: #bbb;
+padding-left: 0;
+padding-right: 0;
+font-weight: 400;
+}
+
+.navbar-inner .nav li a:hover {
+color: #fff;
+background-color: transparent !important;
+}
+
+
+
+.nav>li>a {
+display: block;
+}
+
+
+.navbar-inner .nav li {
+padding-left: 35px;
+}
+
+.navbar .nav>li {
+display: block;
+float: left;
+}
+
+
+li {
+display: list-item;
+line-height: 18px;
+text-align: -webkit-match-parent;
+}
+
+.nav-collapse.collapse {
+height: auto;
+}
+
+
+.collapse {
+position: relative;
+height: 0;
+overflow: hidden;
+-webkit-transition: height 0.35s ease;
+-moz-transition: height 0.35s ease;
+-ms-transition: height 0.35s ease;
+-o-transition: height 0.35s ease;
+transition: height 0.35s ease;
+}
+
+h2 sup {
+padding: 0;
+margin: 0;
+position: relative;
+bottom: 15px;
+left: 0px;
+font-size: 11px;
+}
+
+nav.nav sup {
+padding: 0;
+margin: 0;
+position: relative;
+bottom: 27px;
+left: 2px;
+font-size: 11px;
+float: right;
+}

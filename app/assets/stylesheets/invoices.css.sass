@@ -1,0 +1,85 @@
+$highlight-background: #A0BF43
+$remaining-background: #D9E5B4
+$remaining-color: #316F02
+
+#help
+  .current-month
+    color: #FFFFFF
+
+.invoices-container
+
+  h2
+    color: #434343
+    font-size: 1.1em
+    font-weight: bold
+    line-height: 26px
+
+  div.heading
+    display: inline-block
+    width: 100%
+
+  h2.previous
+    float: left
+
+  h3
+    font-size: 1.1em
+    float: right
+    line-height: 26px
+
+  table.usage
+    display:block
+    clear:both
+    moz-border-radius: 4px
+    -webkit-border-radius: 4px
+    border-radius: 4px
+    width: 100%
+    margin-bottom: 1.666666em
+
+    tr:first-child
+      background-color: $remaining-background
+      padding: 5px
+
+      td
+        padding: 5px
+
+    td
+      text-align: right
+      border: 0
+      white-space: nowrap
+      padding-right: 5px
+
+    .current
+      background-color: $highlight-background
+      color: #FFFFFF
+      font-size: 1em
+      moz-border-top-left-radius: 4px
+      -webkit-border-top-left-radius: 4px
+      border-top-left-radius: 4px
+      moz-border-bottom-left-radius: 4px
+      -webkit-border-bottom-left-radius: 4px
+      border-bottom-left-radius: 4px
+
+    .previous
+      background-color: $highlight-background
+      color: #FFFFFF
+      width: 100%
+      moz-border-radius: 4px
+      -webkit-border-radius: 4px
+      border-radius: 4px
+
+    .remaining
+      color: $remaining-color
+
+      moz-border-top-right-radius: 4px
+      -webkit-border-top-right-radius: 4px
+      border-top-right-radius: 4px
+      moz-border-bottom-right-radius: 4px
+      -webkit-border-bottom-right-radius: 4px
+      border-bottom-right-radius: 4px
+
+      background-size: 10px 10px
+      background-color: $remaining-background
+      background-image: -webkit-linear-gradient(-45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent)
+      background-image: -moz-linear-gradient(-45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%,transparent 75%, transparent)
+      background-image: linear-gradient(135deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent)
+

@@ -1,0 +1,56 @@
+body.registrations
+
+  fieldset
+    :border-bottom 1px solid #e5e5e5
+
+    &.billing-address
+      :border-bottom none
+
+  fieldset.other
+    :display none
+
+  img.ccv
+    :margin-left 10px
+    :width 64px
+
+  .ccv-text
+    :color #6e6e6e
+    :margin-left 144px
+
+  #main
+
+    ol.register-steps
+      :list-style none
+      :margin-left 0
+
+      li
+        :background-color transparent
+        :color #767875
+        :height 32px
+        :line-height 32px
+        :padding 9px 0 9px 50px
+        :position relative
+
+        h3
+          :border 0
+          :line-height 20px
+          :margin 0
+
+        .status
+          :position absolute
+          :left 25px
+          :top 23px
+
+        &.status-complete
+
+          .status
+            :background url(image_path('bg-green-tick.png')) 0 0 no-repeat
+            :height 26px
+            :left 10px
+            :top 9px
+            :width 27px
+
+      li:last-child
+        :-webkit-animation success-highlight 5000ms ease-in-out
+        :-moz-animation success-highlight 5000ms forwards ease-in-out
+        :animation success-highlight 5000ms forwards ease-in-out

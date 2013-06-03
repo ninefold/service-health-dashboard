@@ -1,0 +1,71 @@
+body.backups
+  #backups-view
+    .row.backup
+      :line-height 25px
+
+    h2
+      :margin-bottom 0
+
+      span
+
+        span
+          :margin-right 5px
+
+      .heading-panel
+        :font-size 13px
+        :float right
+        :line-height 21px
+        :text-align right
+
+        .already-enabled, .in-progress
+          :float left
+          :margin 11px 0 0 0
+          :width auto
+
+        .already-enabled
+          :margin-right 5px
+
+        &.btn-primary
+          :margin 0
+
+    p.empty, p.overview
+      :margin-top 18px
+
+    ul
+      :list-style none
+      :margin 0
+      :padding 0
+
+      li
+        :border-bottom 1px solid #e5e5e5
+        :padding 18px 0
+
+        .status
+          :float left
+          :height 18px
+          :padding-top 5px
+          :position relative
+          :width 60px
+
+        a.btn.btn-inline
+          :margin-left 5px
+
+        ul.notifications
+          :padding-left 60px
+
+          li
+            :border-bottom 1px dashed #e5e5e5
+            :padding 12px 0
+
+            .status
+
+              .spinner
+                :top 4px
+
+              img
+                :left 29%
+                :position absolute
+                :top -4px
+
+    span.inline
+      :margin-left 5px

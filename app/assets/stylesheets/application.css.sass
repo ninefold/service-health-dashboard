@@ -1,0 +1,1335 @@
+//= require bootstrap
+//= require_self
+$servers: #2a9ddb
+$links: #0187ce
+$success-background: #EEF6E8
+
+@mixin image-2x($image, $width, $height)
+  @media (min--moz-device-pixel-ratio: 1.3), (-o-min-device-pixel-ratio: 2.6/2), (-webkit-min-device-pixel-ratio: 1.3), (min-device-pixel-ratio: 1.3), (min-resolution: 1.3dppx)
+    :background-image url($image)
+    :background-size $width $height
+
+@mixin inline-button
+  :color #292E31
+  :background-color #CCE5F3
+  :border-radius 3px
+  :margin-right 0
+  :font-size 13px
+  :line-height 21px
+  :height 21px
+
+  &:hover
+    :color white
+    :background-color #00679E
+
+  &:active
+    :background-color #E0F0F9
+    :color #70787C
+
+@mixin server-status
+  :background url(image_path('icon-status.png')) no-repeat
+  @include image-2x(image_path('icon-status2x.png'), 20px, 60px)
+  :background-size 20px 60px
+  :height 20px
+
+  &.stopped, &.expunging, &.destroyed, &.error
+    :background-position 0 -40px
+
+  &.alert, &.deploying
+    :background-position 0 -20px
+    :border 0
+    :color #333333
+    :padding-bottom 0
+    :padding-top 0
+    :padding-right 0
+
+  &.starting, &.stopping
+    :background-position 0 -20px
+
+@-webkit-keyframes success-highlight
+  0%
+    :background-color $success-background
+  100%
+    :background-color white
+
+strong
+  :font-weight 500
+
+
+
+
+@import jquery.gritter
+@import jquery.jstree
+@import forms
+@import navbar
+@import help
+@import main
+
+// Page specific imports
+@import sessions
+@import tickets
+@import registrations
+@import apis
+@import servers
+@import users
+@import apps
+@import backups
+@import networks
+@import domains
+@import local_load_balancers
+@import gritter
+@import volumes
+@import invoices
+@import administration
+
+body
+  :font-family "omnes-pro", "Helvetica Neue"
+
+.clear
+  :clear both
+
+.light
+  :color #afafaf
+
+.hidden
+  :display none !important
+
+h1, h2, h3, h4, h5
+  :font-weight normal
+
+  a
+
+    &:after
+      :content "\00BB"
+      :padding-left 5px
+
+  a.btn
+
+    &:after
+      :content ""
+      :padding-left 0
+
+p.welcome
+  :font-size 18px
+  :line-height 24px
+
+a.destructive
+  :color #c42326
+
+  span div div div
+    :background-color #c42326 !important
+
+a:hover
+  :text-decoration none
+
+br.clear
+  :clear both
+
+table.table
+  th
+    :color #9a9a9a
+    :font-weight normal
+
+  tr:hover td
+    :background-color #f5fafd
+
+  th, td
+    :border-top 1px dotted #e6e6e6
+
+    .btn-inline
+      :margin-top 0
+
+.container.main
+  :padding-bottom 36px
+
+.thin
+  :line-height 13px
+
+.field_with_errors
+  :display inline
+
+#help
+  :color #afafaf
+  :float left
+  :margin-right 20px
+  :margin-top 53px
+  :width 220px
+
+  a, em
+    :color $links
+
+  em
+    :font-style normal
+
+  section
+    :border-top 3px solid #cacbcb
+    :padding-top 11px
+    :padding-bottom 72px
+
+
+input.error
+  :background #f8e0e2
+  :border 1px solid #f6abb1
+
+-webkit-keyframes notice-popup
+  0%
+    :-webkit-transform translate(0,63px)
+  80%
+    :-webkit-transform translate(0,-10px)
+  100%
+    :-webkit-transform translate(0,0)
+
+.notice
+  :min-height 31px
+  :border 0
+  :border-radius 0
+  :margin-left 240px
+  :padding 9px 10px
+
+  h4
+    :font-size 13px
+    :text-transform uppercase
+
+  h3
+    :font-size 20px
+
+  &.alert, &.error
+    :background #fadf73
+    :color black
+    :text-decoration none
+    :-webkit-animation notice-popup 250ms ease-in
+
+  &.error
+    :background #d42e2e
+    :color white
+
+#main
+  :float right
+  :width 620px
+
+  header
+    :border-bottom 3px solid $servers
+    :margin-bottom 18px
+    :position relative
+
+    &:after
+      :clear both
+
+    a.view-options
+      :background #e3f3fb url(image_path('icon-view-options.png')) no-repeat 5px 6px
+      :background-size 15px 11px
+      :border 1px solid #c3e5f7
+      :border-radius 5px
+      :font-size 16px
+      :line-height 21px
+      :padding 0px 5px 2px 23px
+      :position absolute
+      :right 0
+      :top 15px
+
+    h4
+      :color $servers
+      :font-size 18px
+      :position absolute
+      :top -18px
+
+    h1
+      :border-bottom 0
+      :display block
+      :font-size 34px
+      :font-weight 500
+      :margin-bottom 0
+      :position relative
+
+      span.weak
+        :font-weight 300
+
+      &.inline
+        :width 340px
+        :white-space nowrap
+        :overflow hidden
+        :text-overflow ellipsis
+
+      label
+        :color #585858
+        :display inline
+        :font-size 15px
+    a
+      :position absolute
+      :right 0
+      :top 13px
+
+    div#server-status, div#app-status
+      :position absolute
+      :right 0
+      :top 7px
+      :width 270px
+
+      a.btn
+        :float right
+        :position static
+        :margin-right 0px
+
+      .current-status
+        @include server-status
+        :padding-left 25px
+        :font-size 18px
+        :line-height 16px
+        :position absolute
+        :height 18px
+        :top 17px
+
+    div#app-status
+      :width 170px
+
+    .breadcrumb
+      :background none
+      :border 0
+      :color #2a9ddb
+      :font-weight 500
+      :left 0
+      :padding 0
+      :position absolute
+      :top -36px
+      :width 100%
+
+      a
+        :font-size 16px
+        :left 0
+        :color #2a9ddb
+
+    .step-indicator
+      :color #AFAFAF
+      :font-size 25px
+      :padding-top 21px
+      :position absolute
+      :right 0
+      :top 0
+      :vertical-align middle
+
+      .step
+        :font-size 25px
+        :text-align center
+        :display inline-block
+        :padding 0 5px 0 5px
+
+  h1
+    :border-bottom 1px dashed #d4d4d4
+    :color $servers
+    :font-size 34px
+    :font-weight 500
+    :line-height 53px
+    :margin-bottom 18px
+
+    span.status
+      :color #cacbcb
+
+  h2
+    :border-top 1px solid #e5e5e5
+    :border-bottom 2px solid #e5e5e5
+    :clear both
+    :color black
+    :font-size 24px
+    :margin 18px 0
+    :padding-bottom 3px
+
+    a.btn, a.btn.btn-primary
+      @include inline-button
+      :margin-top 11px
+      :margin-bottom 0
+      :padding-top 0
+
+      span
+        :margin-right 5px
+
+    .right, .pull-right
+      :line-height 21px
+      :padding-top 0
+
+
+  h3
+    :border-bottom 1px dotted #E5E5E5
+    :border-top 1px dotted #E5E5E5
+    :clear both
+    :color #585858
+    :font-size 20px
+    :line-height 34px
+    :margin 18px 0
+
+  .tabbable
+    :background -webkit-linear-gradient(top, #ffffff, #f1f1f1)
+    :background -moz-linear-gradient(top, #ffffff, #f1f1f1)
+    :background -ms-linear-gradient(top, #ffffff, #f1f1f1)
+    :background -o-linear-gradient(top, #ffffff, #f1f1f1)
+    :font-size 15px
+    :margin-bottom 36px
+    :padding 32px 0 0 0
+
+    .nav-tabs
+      :border-bottom 1px solid #c0c0c0
+      :margin 0
+
+      a
+        :background transparent url(image_path("bg-secondary-nav-item.png")) 0 6px no-repeat
+        :border none
+        :border-radius 0
+        :color #4e4e4e
+        :margin 0
+        :padding-left 14px
+        :padding-right 14px
+
+    li:first-child
+      :margin-left 15px
+
+      a
+        :background none
+
+    li.active
+
+      a
+        :background white
+        :border-radius 6px 6px 0 0
+        :border-top 1px solid #d3d3d3
+        :border-left 1px solid #d3d3d3
+        :border-right 1px solid #d3d3d3
+        :color #0c0c0c
+
+    li.active + li
+
+      a
+        :background none
+
+  dl
+    :clear both
+    :float left
+    :margin-top 0
+    :width 100%
+
+    dt
+      :clear left
+      :color #585858
+      :float left
+      :font-size 15px
+      :font-weight normal
+      :line-height 26px
+      :width 25%
+
+    dd
+      :display table-cell
+      :float left
+      :font-size 18px
+      :line-height 22px
+      :margin-left 0
+      :width 75%
+
+  .span4
+
+    dt, dd
+      :width 50%
+
+
+  .configure
+    :position relative
+
+    h2
+      :border-bottom 0
+      :border-top 0
+      :margin 0
+
+    h3
+      :border-bottom 0
+      :border-top 0
+      :margin 0
+
+    label
+
+      h3 + p
+        :margin-top -6px
+
+    .config-controls.loading
+
+      ol
+
+        li
+          :min-height 40px
+          :padding-top 3px
+
+
+section.connecting
+  :position relative
+  :margin-top 75px
+
+  .server
+    :position absolute
+    :text-align center
+    :left 53px
+    :top -122px
+    :width 117px
+
+
+section.status
+  :border-bottom 1px solid #e5e5e5
+  :font-size 18px
+  :padding 16px 0 31px 0
+
+  .status
+    :background url(image_path('icon-status.png')) no-repeat
+    :background-size 20px 60px
+    :float left
+    :padding-left 23px
+
+    &.stopped
+      :background-position 0 -40px
+
+    &.error
+      :background-position 0 -20px
+
+section.server-info
+  :border-bottom 1px solid #e5e5e5
+  :font-size 15px
+  :padding 14px 0
+
+  h2
+    :padding-bottom 6px
+
+  label
+    :font-size 15px
+
+  h4
+    :font-size 18px
+
+  h5
+    :font-size 16px
+
+  a.btn
+    :margin-top 9px
+
+  th
+    :text-align left
+    :min-width 30px
+
+  article.small
+    :border-left 0
+    :float left
+    :padding-left 0
+    :width 150px
+
+  article
+    :border-left 1px solid #e5e5e5
+    :float left
+    :min-height 106px
+    :padding-left 10px
+    :position relative
+    :width 224px
+
+  article.with-icon
+    :padding-left 50px
+    :width 184px
+
+    .icon
+      :position absolute
+      :left 10px
+      :top 0
+
+      &.server
+        :background url(image_path('service-sprite.png')) no-repeat
+        :background-size 75px 300px
+        :height 40px
+        :width 40px
+
+        &.micro
+          :background-position -15px -10px
+
+      &.os
+        :background url(image_path('os-sprite.png')) no-repeat
+        //:background-size 75px 300px
+        :height 40px
+        :width 40px
+
+        &.centos
+          :background-position -3px -1px
+
+      &.storage
+        :background url(image_path('disk-sprite.png')) no-repeat
+        //:background-size 75px 300px
+        :left 7px
+        :height 40px
+        :width 40px
+
+        &.small
+          :background-position -7px -57px
+
+        &.large
+          :background-position -7px -207px
+
+
+
+section.events
+  :font-size 15px
+  :padding 14px 0
+
+  h2
+    :padding-bottom 9px
+
+  article
+    :float left
+    :position relative
+    :margin-bottom 24px
+    :width 100%
+
+    .time
+      :color #AFAFAF
+      :float left
+      :width 160px
+
+      .relative
+        :font-size 15px
+      .absolute
+        :font-size 13px
+
+    .description
+      :float right
+      :border-bottom 1px solid #e5e5e5
+      :padding-bottom 18px
+      :width 455px
+
+
+section.intro
+  :font-size 18px
+  :padding 1px 0 18px 0
+  :line-height 23px
+
+  p
+    :font-size 18px
+    :margin-bottom 18px
+
+body.registrations
+
+  section.intro
+    :padding-bottom 0
+
+form.signup
+  label
+    :font-size 18px
+
+  section.intro
+
+  input[type=text], input[type=password]
+    :line-height 20px
+    :height 22px
+    :vertical-align top
+
+  legend
+    :margin-bottom 9px
+
+  .credit-card-types
+    :float right
+    :margin-right 40px
+    :width 188px
+
+    img
+      :display inline
+      :float left
+      :padding-right 10px
+      :filter alpha(opacity = 50)
+      :opacity 0.2
+      :width auto
+
+  .control-group
+    :margin-bottom 9px
+    :vertical-align top
+    :position relative
+
+    &.card
+      :background url(image_path('bg-cards.png')) 400px top no-repeat
+      :overflow visible
+
+    &.security
+      :background url(image_path('bg-security.png')) 240px top no-repeat
+
+    a
+      :text-decoration underline
+
+  span.help-inline
+    :background url(image_path('icon-inline-help.png')) no-repeat 5px 3px
+    :color #6e6e6e
+    :position absolute
+    :padding-left 17px
+    :font-size 13px
+    :width 213px
+
+  fieldset
+    :padding-bottom 12px
+    :margin-top 18px
+
+    &.username
+      :padding-bottom 24px
+
+    &.terms
+      :border-bottom 0
+
+      input
+        :margin-top -4px
+
+      label
+        :display inline
+        :padding 9px 0 0 5px
+
+    &.company
+      :border-bottom 1px solid #e5e5e5
+      :padding-bottom 42px
+
+      .not-a-company
+        :padding-bottom 9px
+
+        input
+          :margin-top -4px
+
+        label
+          :display inline
+          :padding 9px 0 0 5px
+
+    &.cardholder
+      :border-bottom 0
+
+      p
+        :color #6e6e6e
+
+  span.robot
+    :color #6e6e6e
+    :display inline-block
+    :font-size 14px
+    :width 120px
+
+  legend
+    :border-bottom 0
+    :color #999
+    :font-size 23px
+
+
+#view-options
+  :background #e3f3fb
+  :border-bottom #2a9ddb
+  :display none
+
+  .control-group
+    :float left
+    :margin-left 10px
+    :padding-top 18px
+    :width 300px
+
+    label
+      :display inline-block
+      :margin-top 0
+      :margin-right 15px
+
+      &.sort
+        :margin-top -9px
+        :vertical-align middle
+
+    input
+      :margin-left 20px
+      :margin-right 10px
+
+      &.first
+        :margin-left 10px
+
+.step.set-name form
+  :margin-top 9px
+
+  input
+    :font-size 24px
+    :height 32px
+    :line-height 32px
+    :margin-bottom 0
+    :margin-right 9px
+    :width 550px
+
+table.tickets
+  td.id
+    :width 25%
+
+form.new-ticket
+
+  input[type=text]
+    :width 97%
+
+  textarea
+    :height 130px
+    :width 97%
+
+#resources-container
+  .actions
+    :float right
+    :white-space nowrap
+
+    select,
+    a
+      :margin-right 10px
+
+  small
+    :display block
+
+
+div.user_account
+  :float left
+  :clear both
+  :width 100%
+  :padding-top 13px
+  :padding-bottom 13px
+  :border-top 1px solid #c0c0c0
+div.user_account_last
+  :float left
+  :clear both
+  :width 100%
+  :padding-top 13px
+  :padding-bottom 13px
+  :border-top 1px solid #c0c0c0
+  :border-bottom 1px solid #c0c0c0
+  :margin-bottom 20px
+div.user_left_panel
+  :float left
+  :width 50px
+div.user_right_panel
+  :float left
+  :padding-left 9px
+  :width 400px
+div.user_buttons
+  :padding-top 15px
+  :float left
+  :text-align right
+span.green
+  :color green
+
+td.form_label
+  :width 40%
+
+.pf_rule_form_field
+  :width 55px
+.pf_rule_form_select
+  :width 95px
+.pm_rule_form_field
+  :width 55px
+.pm_rule_form_select
+  :width 65px
+
+
+.btn-danger
+  :color white
+  :background-color #ce1313
+
+  &:hover, &:active
+    :background-color #f3c6c6
+    :color #333
+
+.btn-inline.btn-danger
+  :background #f8e0e2
+  :color #c81b2a
+
+  &:hover, &:active
+    :background #c81b2a
+    :color white
+
+.btn-warning
+  :color white
+  :background-color #faa732
+
+  &:hover, &:active
+    :background-color #fee8d6
+    :color #333
+
+.cc_security_code
+  :width 3em
+.cc_expiry_month
+  :width 4em
+.cc_expiry_year
+  :width 6em
+
+.right
+  :float right
+.left
+  :float left
+
+#enable-interzone-vlan
+  :margin-top 7px
+
+#toggle-add-iso
+  :margin-top 7px
+
+#add-iso
+  .iso-upload-progress
+    :width 200px
+    :height 20px
+
+  .iso-upload-button
+    :position relative
+    :overflow hidden
+    :float left
+    :margin-right 4px
+    :margin-bottom 9px
+
+  .iso-upload-button input
+    :position absolute
+    :top 0
+    :right 0
+    :margin 0
+    :border solid transparent
+    :border-width 0 0 100px 200px
+    :opacity 0
+    :filter alpha(opacity=0)
+    :-moz-transform translate(-300px, 0) scale(4)
+    :direction ltr
+    :cursor pointer
+
+  .or
+    :font-weight bold
+    :margin 0 10px
+    :float left
+
+  .errors p
+    :color red
+
+#add-iso input[type='text']
+  :width 400px
+
+.isos
+  .row.iso
+    :margin-bottom 10px
+
+.templates
+  .row.template
+    :margin-bottom 10px
+
+.volumes
+  .row.volume
+    :margin-bottom 10px
+
+#toggle-add-template
+  :margin-top 7px
+
+#add-template
+  .template-upload-progress
+    :width 200px
+    :height 20px
+
+  .template-upload-button
+    :position relative
+    :overflow hidden
+    :float left
+    :margin-right 4px
+
+  .template-upload-button input
+    :position absolute
+    :top 0
+    :right 0
+    :margin 0
+    :border solid transparent
+    :border-width 0 0 100px 200px
+    :opacity 0
+    :filter alpha(opacity=0)
+    :-moz-transform translate(-300px, 0) scale(4)
+    :direction ltr
+    :cursor pointer
+
+  .or
+    :font-weight bold
+    :margin 0 10px
+    :float left
+
+  .errors p
+    :color red
+
+#add-template input[type='text']
+  :width 400px
+
+.template-current-status
+  :color #AFAFAF
+
+section.create-template
+  :display inline
+
+  .message
+    :font-size 14px
+  .btn
+    :margin-bottom 10px
+
+  .step2, .step3
+    :display none
+
+  .step3
+    .message
+
+      &.success, &.error
+        :padding-right 16px
+        :background-repeat no-repeat
+        :background-position right
+        :background-size 16px
+
+      &.success
+        :background-image url(image_path('bg-green-tick.png'))
+
+      &.error
+        :padding-right 20px
+        :background-size 20px
+        :background-image url(image_path('icon-error.png'))
+
+      .spinner
+        :display inline-block
+        :width 16px
+        :height 16px
+        :margin-top 5px
+
+section.load-balancers
+  .load-balanced-server
+    :background url(image_path('icon-status.png')) no-repeat
+    :background-size 20px 60px
+    :padding-left 23px
+    :display block
+    :white-space nowrap
+
+    &.stopped, &.expunging, &.destroyed
+      :background-position 0 -40px
+
+    &.error, &.starting, &.stopping
+      :background-position 0 -20px
+
+    span:after
+      content: ": "
+
+section.domain-create
+  .form-horizontal
+    .controls
+      :margin-bottom 5px
+
+  .input-append
+    :display block
+
+  .domain-record
+    :border-top 1px solid #e5e5e5
+    :padding-top 15px
+
+  .domain-record:first-child
+    :border-top 0
+    :padding-top 0
+
+.user_search
+  :padding-top 12px
+
+.impersonation_mode
+  :padding 8px 35px 8px 14px
+  :margin-bottom 18px
+  :background-color #FCF8E3
+  :border 1px solid #FBEED5
+  :border-radius 4px 4px 4px 4px
+
+#help
+
+  section.current-price-view
+    :border-top 0
+    :color black
+
+    h3
+      :border-top 3px solid #cacbcb
+      :padding-top 18px
+
+    h1
+      :font-size 1.4em
+
+    span.component-type
+      :weight bold
+
+    dt
+      :float left
+      :font-weight normal
+      :display inline
+      :clear right
+
+    dd
+      :float right
+      :display inline
+
+    .current-price-total
+      :padding-top 5px
+
+      dl
+        :border-top 1px solid #CACBCB
+        :padding-top 5px
+        :clear both
+
+        span
+          :display block
+
+.ticket
+  .description
+    :height 4em
+    :overflow hidden
+
+body.dashboard
+
+  #help
+
+    section.spinner
+
+      .spinner-container
+        :float left
+        :margin 10px 25px
+
+        .spinner
+          :left 0
+
+      .spinner-message
+        :font-size 1.2em
+
+  #main
+
+    .spinner-container
+      :margin 10px 25px
+      :float left
+
+    .spinner-message
+      :font-size 1.3em
+
+    h4
+      :font-size 1.2em
+
+    .dashboard-breakdown, .support
+
+      p
+        :color #585858
+        :font-size 18px
+        :line-height 24px
+
+      p.server, p.app
+        :white-space nowrap
+        :overflow hidden
+        :text-overflow ellipsis
+        @include server-status
+        :padding-left 25px
+        :font-size 18px
+        :line-height 18px
+        :margin-bottom 9px
+
+        small
+          :display block
+
+    .dashboard-breakdown
+      :border-top 3px solid #d4d4d4
+      :margin-top 36px
+
+    .apps, .servers, .support
+
+      h3
+        :border none
+        :font-size 13px
+        :font-weight 500
+        :line-height 18px
+        :margin-bottom 9px
+        :padding-top 4px
+        :text-transform uppercase
+
+      .apps-section, .servers-section
+        :border-top 1px dashed #d4d4d4
+
+      .apps-section:first-of-type, .servers-section:first-of-type
+        :border-top none
+
+      h1
+
+        img
+          :height 45px
+          :margin-top -6px
+          :max-width 45px
+          :width 45px
+
+      .actions
+
+        a
+          :font-size 15px
+          :line-height 22px
+
+          &.btn.btn-inline
+            :height 24px
+            :margin-right 4px
+
+
+
+// Notifcations
+
+.menu-notifications-counter
+  :display inline-block
+  :width 15px
+  :text-align center
+  :vertical-align middle
+
+  .menu-notifications-count
+    :margin 0
+
+.menu-notifications
+
+  &.disabled
+    :display none !important
+
+  ul
+    :margin-left 0
+
+    li
+      :position relative
+      :padding 3px 20px
+      :clear both
+      :font-weight normal
+      :line-height 20px
+      :color #333
+      :white-space nowrap
+      :margin-left 0 !important
+      :padding-bottom 1em
+      :padding-left 54px
+      :width 200px
+
+      &.link
+        :cursor pointer
+
+      h1
+        :font-size 1em
+        :line-height 1.2em
+        :overflow hidden
+        :text-overflow ellipsis
+
+        &.bold
+          :font-weight bold
+
+      span.created-at
+        :font-size 0.9em
+        :color #CACBCB
+
+      a.mark-as-read
+        :display block
+        :padding 3px
+
+        &:hover
+          :background-color transparent
+
+      div.status
+        :position absolute
+        :top 0
+        :left 10px
+        :width 34px
+        :height 34px
+        :background-repeat no-repeat
+        :background-position center
+
+        &.complete
+          :background-image url(image_path('bg-green-tick.png'))
+
+        &.failed
+          :background-image url(image_path('icon-error.png'))
+
+  a
+    :color black !important
+
+.notifications-table
+  .notifications-table-row
+
+    &.link
+      :cursor pointer
+
+    .avatar
+      :width 26px
+
+      img
+        :border-radius 2px
+
+    .message, .light
+      :display block
+
+    div.status
+      :width 34px
+      :height 34px
+      :background-repeat no-repeat
+      :background-position center
+
+      &.complete
+        :background-image url(image_path('bg-green-tick.png'))
+
+      &.failed
+        :background-image url(image_path('icon-error.png'))
+
+      .spinner
+        :z-index 0 !important
+
+.form-actions
+
+  .spin-place-holder
+    :float left
+    :height 30px
+    :margin-right 5px
+    :position relative
+    :width 35px
+
+  .loading-text
+    :font-size 18px
+    :padding-top 6px
+
+  &.weak
+    :border 0
+    :padding-bottom 0
+    :padding-top 0
+
+.mask
+  :position absolute
+  :color white
+  :text-align center
+
+  .background
+    :position absolute
+    :top 0
+    :bottom 0
+    :left 0
+    :right 0
+    :background-color black
+    :opacity .5
+    :filter alpha(opacity = 50)
+
+  .message
+    :margin-left 10px
+    :position relative
+
+  .spin
+    :display inline-block
+    :width 16px
+    :height 12px
+
+    div div div
+      :background-color white !important
+
+#iso-list
+  .server
+    :padding-bottom 5px
+
+    .current-status
+      :padding-left 20px
+      @include server-status
+
+#migrations-container
+  .spinner-small
+    :float left
+    :margin-top 12px
+    :margin-left 5px
+
+  .spinner-message
+    :float right
+    :margin-left 7px
+
+.ellipsis
+  :overflow hidden
+  :white-space nowrap
+  :text-overflow ellipsis
+
+.gritter-title
+  :overflow hidden
+  :text-overflow ellipsis
+  :display inline-block
+  :width 165px
+
+.local-button-spinner
+  :margin-right 5px
+  :margin-top -2px

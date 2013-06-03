@@ -36,7 +36,9 @@
 						<li><a href="/1">Ninefold</a></li>
 						<li><a href="/2">Ninefold <sup>2</sup></a></li>
 						<li><a href="https://help.ninefold.com/home">Knowledge Base</a></li>
-						<!-- <li><a href="https://portal.ninefold.com">Portal</a></li>-->
+						<% if user_signed_in? %>
+							<li><%= link_to 'Logout', destroy_user_session_path %><li> 
+						<% end %>
 					</nav>
 				</div>
 			</div>
@@ -45,7 +47,8 @@
 
 	<div style="margin-top: 20px; width: 860px; margin: 20px auto 0px; border-bottom: 3px solid #2A9DDB; "><h1 id="heading">Service Health Dashboard</h1></div>
 	<div class="container main" style="margin-top: 20px;">
-
+		<p class="notice"><%= notice %></p>
+ 	  <p class="alert"><%= alert %></p>
 		<div id="content">
 			<%= yield %>
 		</div>
