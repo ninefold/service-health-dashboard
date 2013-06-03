@@ -119,4 +119,27 @@ Service.create! name: "Ninefold 2 Portal",
                 version: 2,
                 order: 5,
                 invisible: false
+u = User.new(
+  email: "jason@ninefold.com",
+  password: 'E@sy123!'
+)
+u.save!(:validate => false)
 
+
+u = User.new(
+  email: "jeff@ninefold.com",
+  password: 'E@sy123!'
+)
+u.save!(:validate => false)
+
+u = User.new(
+  email: "steven@ninefold.com",
+  password: 'E@sy123!'
+)
+u.save!(:validate => false)
+
+u = User.new(
+  email: "angelo@ninefold.com",
+  password: 'E@sy123!'
+)
+u.save!(:validate => false)
