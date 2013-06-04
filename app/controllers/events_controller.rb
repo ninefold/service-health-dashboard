@@ -27,7 +27,7 @@ class EventsController < ApplicationController
           p "Scheduling event expose in "+(@event.start - DateTime.now).abs.round.to_s
           Resque.enqueue_in((@event.start - DateTime.now).abs.round, es, @event.id)
         end
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
+        format.html { redirect_to '/', notice: 'Event was successfully created.' }
         format.json { render json: @event, status: :created, location: @event }
       else
         format.html { render action: 'new' }
