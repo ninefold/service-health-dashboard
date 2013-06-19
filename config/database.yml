@@ -18,4 +18,4 @@ production:
   database: dashboard_production
   username: root
   password: re9hav2GY
-  host: localhost
+  host: 10.12.26.142
