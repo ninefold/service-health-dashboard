@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(:version => 20130603034926) do
   end
 
   add_index "services", ["dependent_id"], :name => "index_services_on_dependent_id"
+  add_index "services", ["slug"], :name => "index_services_on_slug", :unique => true
 
   create_table "severities", :force => true do |t|
     t.string   "name"

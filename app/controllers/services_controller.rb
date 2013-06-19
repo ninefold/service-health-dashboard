@@ -1,11 +1,24 @@
 class ServicesController < ApplicationController
+
   before_filter :authenticate_user!, :only => [:create, :new, :update, :edit]
+
+  #caches_action :index, :show, :nf1_path, :nf2_path
+
+
 
   def date_range
     days_to_go_back = 3
     @day = DateTime.now - days_to_go_back
     @days = (@day .. @day + days_to_go_back).to_a { |date| '#{date}' }
     @days.reverse!
+  end
+
+  def expire
+    expire_action :action=>:index
+    expire_action :action=>:show
+    #expire_action :action=>:nf1
+    #expire_action :action=>:nf2
+    redirect_to '/'
   end
 
   def index
@@ -20,7 +33,8 @@ class ServicesController < ApplicationController
 
 
   def show
-    @service = Service.where('slug = ?',params[:slug]).last
+    @service = Service.find(params[:id])
+    #@service = Service.where('slug = ?',params[:slug]).last
     @events = Event.where('service_id='+@service.id.to_s).
                     where('start < ?', DateTime.now).
                     where('invisible = ?', false).

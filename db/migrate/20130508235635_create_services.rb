@@ -11,6 +11,8 @@ class CreateServices < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_index :services, :slug, unique: true
     add_index :services, :dependent_id
+    
   end
 end

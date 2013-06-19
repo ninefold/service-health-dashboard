@@ -30,3 +30,4 @@ group :test, :development do
 end
 
 gem 'devise'
+gem 'friendly_id', '~> 4.0.9'

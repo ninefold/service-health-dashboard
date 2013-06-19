@@ -1,6 +1,7 @@
 == How to use
+rake resque:setp
 rake resque:scheduler
-rake resque:work
+QUEUE=* rake resque:work
 rails c
 
 Make sure redis is running

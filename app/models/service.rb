@@ -1,9 +1,11 @@
 class Service < ActiveRecord::Base
 	belongs_to :dependent
   has_many :events
-	attr_accessible :description, :name, :order, :slug, :version, :invisible, :service_id
+	attr_accessible :description, :name, :order, :slug, :version, :invisible, :service_id, :dependent
 
-
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+  
   def self.maintenance(nf_version)
     Event.includes(:service).
           where(:events=> {:invisible=>false}).

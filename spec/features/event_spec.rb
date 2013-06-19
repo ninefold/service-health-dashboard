@@ -1,9 +1,10 @@
 require 'spec_helper'
 
+
 describe "Events" do
   describe "When accessing the /events URL" do
   	it "should display some events" do
-  		e = Event.create(
+  		e = Event.create!(
         "service_id"=>1,
         "status_id"=>1,
         "message"=>"This is a test",
@@ -11,9 +12,10 @@ describe "Events" do
         "informational"=>false,
         "event_type_id"=>1,
         "invisible"=>false,
-        "description"=>"TEST"
+        "description"=>"This is a test"
       )
-  		visit events_path
+      p Event.find(1).messagex
+  		visit '/cloud-servers-zone-1'
   		expect(page).to have_content 'This is a test'
     end
   end
