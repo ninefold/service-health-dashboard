@@ -7,7 +7,7 @@
             </tr>
         </thead>
         <tbody id="services-body">
-        	<% if @maintenance != nil %>
+        	<% if !@maintenance.empty? %>
         		<% for event in @maintenance %>
                     <% if event!= nil %>
                 	   <tr>
