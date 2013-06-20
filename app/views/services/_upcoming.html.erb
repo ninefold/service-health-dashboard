@@ -13,7 +13,8 @@
                 	   <tr>
                     		<td class="status"><%= event.start.strftime("%b %d, %I:%M%p")%><br />
                     			<div style="font-size:11px;">
-                    				<a href=event.service_id style="border-bottom: dotted;border-bottom-width: 1px; text-decoration: none;">(more info)</a>
+                                    <% link_text = "/services/" + event.service.slug + "?status=" + event.status.id.to_s %>
+                    				<a href="<%= link_text %>" style="border-bottom: dotted;border-bottom-width: 1px; text-decoration: none;">(more info)</a>
                     			</div>
                     		</td>
 
