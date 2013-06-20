@@ -55,14 +55,14 @@ Status.create! name:         'Down',
 
 Service.create! name:        "Cloud Servers Zone 1",
                 slug:        "cloud-servers-zone-1",
-                description: "Cloud Servers located in Zone 1 (Sydney)",
+                description: "",
                 version:     1,
                 order: 1,
                 invisible: false
 
 Service.create! name: "Cloud Servers Zone 2",
                 slug: "cloud-servers-zone-2",
-                description: "Cloud Servers located in Zone 2 (Sydney)",
+                description: "",
                 version: 1,
                 order: 2,
                 invisible: false
@@ -70,21 +70,21 @@ Service.create! name: "Cloud Servers Zone 2",
 
 Service.create! name: "Cloud Storage",
                 slug: "cloud-storage",
-                description: "Cloud Storage Servers (incl. Oxygen Cloud)",
+                description: "",
                 version: 1,
                 order: 3,
                 invisible: false
 
 Service.create! name: "Ninefold Portal",
                 slug: "ninefold-portal",
-                description: "The Management portal - http://ninefold.com/portal",
+                description: "http://ninefold.com/portal",
                 version: 1,
                 order: 4,
                 invisible: false
 
 Service.create! name: "AU-Sydney-1",
                 slug: "AU-Sydney-1",
-                description: "Western Suburb based data center",
+                description: "North-west Sydney datacentre",
                 version: 2,
                 order: 1,
                 invisible: false
@@ -92,14 +92,14 @@ Service.create! name: "AU-Sydney-1",
 
 Service.create! name: "AU-Sydney-2",
                 slug: "AU-Sydney-2",
-                description: "Inner-city data center",
+                description: "Sydney CBD datacentre",
                 version: 2,
                 order: 2,
                 invisible: false
 
 Service.create! name: "US-N. California-1",
                 slug: "us-north-carolina-1",
-                description: "USA West Coast Data Center",
+                description: "US West Coast datacentre",
                 version: 2,
                 order: 3,
                 invisible: false
@@ -115,7 +115,7 @@ Service.create! name: "App Deploy",
 
 Service.create! name: "Ninefold 2 Portal",
                 slug: "ninefold-portal-2",
-                description: "The Management portal - http://portal.ninefold.com",
+                description: "http://portal.ninefold.com",
                 version: 2,
                 order: 5,
                 invisible: false
