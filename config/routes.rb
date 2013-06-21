@@ -9,7 +9,7 @@ ServiceHealthDashboard::Application.routes.draw do
 
   get "services/index"
   
-  resources :events, only: [:new, :create]
+  resources :events, only: [:new, :create, :index, :show, :edit, :update]
   resources :services#, except: :show
   resources :statuses
   match '/expire', to: 'services#expire', as: 'expire'

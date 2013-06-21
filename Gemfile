@@ -31,3 +31,4 @@ end
 
 gem 'devise'
 gem 'friendly_id', '~> 4.0.9'
+gem 'db-charmer', :require => 'db_charmer'

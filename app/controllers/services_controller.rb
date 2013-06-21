@@ -94,7 +94,7 @@ class ServicesController < ApplicationController
     @service = Service.find(params[:id])
 
     respond_to do |format|
-      if @service.update_attributes(params[:task])
+      if @service.update_attributes(params[:service])
 
         format.html { redirect_to '/', notice: 'Service was successfully updated.' }
         format.json { head :no_content }

@@ -1,6 +1,25 @@
-<h1>Events</h1>
-<ul>
-<% for event in @events %>
-	<li><%= event.message %></li>
-<%end%>
-</ul>
+<h1>Listing events</h1>
+<div id="webservices">
+<table id="service-list">
+  <tr>
+    <th>Service</th>
+    <th>Description</th>
+    <th>Date</th>
+    <th>Status</th>
+    <th>Edit</th>
+  </tr>
+
+<% @events.each do |event| %>
+  <tr>
+    <td><%= event.service.name %></td>
+    <td><%= event.message %></td>
+    <td><%= event.start %></td>
+    <td><%= event.status.name %></td>
+    <td><%= link_to 'Edit', edit_event_path(event) %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+</div>
+<%= link_to 'New Event', new_event_path %>
