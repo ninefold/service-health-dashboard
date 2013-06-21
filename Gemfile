@@ -6,7 +6,7 @@ gem 'rails', '3.2.12'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
-gem 'resque', :require => ["resque/server"]
+gem 'resque', '~>1.24.1', :require => ["resque/server"]
 gem 'resque-scheduler'
 gem 'mysql2'
 # Gems used only for assets and not required

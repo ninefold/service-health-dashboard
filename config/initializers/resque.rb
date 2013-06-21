@@ -1,4 +1,5 @@
 require 'resque_scheduler'
+require 'resque_scheduler/server'
 Rails.cache.clear
 Resque.redis = 'localhost:6379'
 Resque.redis.namespace = "resque:EventScheduler"
@@ -12,7 +13,6 @@ Resque.redis.namespace = "resque:EventScheduler"
 #Resque::Scheduler.dynamic = true
 
 Dir["#{Rails.root}/app/jobs/*.rb"].each { |file| require file }
-
 
 # The schedule doesn't need to be stored in a YAML, it just needs to
 # be a hash.  YAML is usually the easiest.

@@ -73,4 +73,5 @@ class Service < ActiveRecord::Base
     end
     events
   end
+
 end

@@ -1,5 +1,0 @@
-page_cache_expire:
-  every: 5m
-  class: CacheExpirer
-  args:
-  description: Expires the page cache every 5 minutes

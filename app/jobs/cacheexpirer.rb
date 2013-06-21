@@ -1,12 +1,9 @@
 require 'time'
 module CacheExpirer
-  @queue = :page_expirer
+  @queue = :event_schedule
   
-  def self.perform(event_id)
-    expire_action(:controller => '/services', :action => 'index')
-    expire_action(:controller => '/services', :action => 'show')
-    expire_action(:controller => '/services', :action => 'nf1')
-    expire_action(:controller => '/services', :action => 'nf2')
-    p '5 minute cache expiry'
+  def self.perform(id)
+    p '10s cache expiring'
+    p '10s cache expired'
   end
 end

@@ -2,7 +2,7 @@ class ServicesController < ApplicationController
 
   before_filter :authenticate_user!, :only => [:create, :new, :update, :edit]
 
-  #caches_action :index, :show, :nf1_path, :nf2_path
+  caches_action :index, :show, :nf1, :nf2, :expires_in => 3.minutes
 
 
 
@@ -15,9 +15,6 @@ class ServicesController < ApplicationController
 
   def expire
     expire_action :action=>:index
-    expire_action :action=>:show
-    #expire_action :action=>:nf1
-    #expire_action :action=>:nf2
     redirect_to '/'
   end
 
