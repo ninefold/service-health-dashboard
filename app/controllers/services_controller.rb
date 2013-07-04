@@ -33,7 +33,7 @@ class ServicesController < ApplicationController
     #@service = Service.where('slug = ?',params[:slug]).last
     @events = Event.where('service_id='+@service.id.to_s).
                     where('start < ?', DateTime.now).
-                    where('start>=?', DateTime.now+4.days).
+                    where('start >= ?', DateTime.now-4.days).
                     where('invisible = ?', false).
                     order('start DESC')
     @maintenance = Service.maintenance(service=@service.id).
