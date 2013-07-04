@@ -1,6 +1,6 @@
 class ServicesController < ApplicationController
 
-  before_filter :authenticate_user!, :only => [:create, :new, :update, :edit]
+  before_filter :authenticate_user, :only => [:create, :new, :update, :edit]
 
   caches_action :index, :show, :nf1, :nf2, :expires_in => 3.minutes
 
@@ -28,12 +28,12 @@ class ServicesController < ApplicationController
   end
 
 
-
   def show
     @service = Service.find(params[:id])
     #@service = Service.where('slug = ?',params[:slug]).last
     @events = Event.where('service_id='+@service.id.to_s).
                     where('start < ?', DateTime.now).
+                    where('start>=?', DateTime.now+4.days)
                     where('invisible = ?', false).
                     order('start DESC')
     @maintenance = Service.maintenance(service=@service.id).
