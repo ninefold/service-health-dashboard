@@ -25,6 +25,10 @@ tr.moreinfo, tr.moreinfo td.highlight {
 background-color: rgb(255, 255, 134) !important;
 }
 
+.Highlight {
+    background-color: rgb(255, 255, 134);
+}
+
 .Hazard {
     background-color: yellow;
 }

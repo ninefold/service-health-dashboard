@@ -21,12 +21,13 @@
                     		<td class="status">
                                 <% if event.event_type != nil %>
                                     <% event.event_type %>
-                                    <div class="upcoming "+event.event_type><%=event.event_type%></div>
+                                    <div class="upcoming <%=event.event_type.name%>"><%=event.event_type.name%></div>
                                 <%end%>
 
                     			<div id="service" style="font-weight: bold;">
-                    				<%= event.service.name %></div>
-                    				<%=event.message%>
+                    				<%= event.service.name %>
+                                </div>
+                    			<%=event.message%>
                     		</td>
                     	</tr>
                     <% end %>
