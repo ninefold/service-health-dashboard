@@ -9,7 +9,7 @@ class Service < ActiveRecord::Base
   def self.maintenance(nf_version)
     Event.includes(:service).
           where(:events=> {:invisible=>false}).
-          where(start: DateTime.now..DateTime.now+90.days).
+          where(start: (DateTime.now-12.hours)..DateTime.now+90.days).
           where(status_id: 2).
           where(:services => {:version=> nf_version}).
           order('start')
@@ -17,7 +17,7 @@ class Service < ActiveRecord::Base
 
   def self.maintenance(service)
     Event.where(:events=> {:invisible=>false}).
-          where(start: DateTime.now..DateTime.now+90.days).
+          where(start: (DateTime.now-12.hours)..DateTime.now+90.days).
           where(status_id: 2).
           where(:service_id => service).
           order('start')
