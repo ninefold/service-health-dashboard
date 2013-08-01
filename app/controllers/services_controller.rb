@@ -30,12 +30,13 @@ class ServicesController < ApplicationController
 
   def show
     @service = Service.find(params[:id])
-    #@service = Service.where('slug = ?',params[:slug]).last
+
     @events = Event.where('service_id='+@service.id.to_s).
                     where('start < ?', DateTime.now).
                     where('start >= ?', DateTime.now-4.days).
                     where('invisible = ?', false).
                     order('start DESC')
+
     @maintenance = Service.maintenance(service=@service.id).
                     order('start DESC')
 
@@ -48,14 +49,14 @@ class ServicesController < ApplicationController
   def nf1
     @nf1_services = Service.where('version=1 AND invisible=false').all
     @statuses = Status.all
-    @maintenance = Service.maintenance(nf_version=1)
+    @maintenance = Service.platform_maintenance(nf_version=1)
     days = date_range
   end
 
   def nf2
     @nf2_services = Service.where('version=2 AND invisible=false').all
     @statuses = Status.all
-    @maintenance = Service.maintenance(nf_version=2)
+    @maintenance = Service.platform_maintenance(nf_version=2)
     days = date_range
   end
 
@@ -69,7 +70,7 @@ class ServicesController < ApplicationController
     @service = Service.new
 
     respond_to do |format|
-      format.html # new.html.erb
+      format.html 
       format.json { render json: @service }
     end
   end   

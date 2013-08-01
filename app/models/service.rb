@@ -6,7 +6,7 @@ class Service < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name, use: :slugged
   
-  def self.maintenance(nf_version)
+  def self.platform_maintenance(nf_version)
     Event.includes(:service).
           where(:events=> {:invisible=>false}).
           where(start: (DateTime.now-12.hours)..DateTime.now+90.days).
