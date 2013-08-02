@@ -2,20 +2,20 @@
 development:
   adapter: mysql2
   database: dashboard
-  username: root
-  password: re9hav2GY
+  username: username
+  password: password
   host: localhost
 
 test:
   adapter: mysql2
   database: dashboard_test
-  username: root
-  password: re9hav2GY
+  username: username
+  password: password
   host: localhost
 
 production:
   adapter: mysql2
   database: dashboard_production
-  username: root
-  password: re9hav2GY
+  username: username
+  password: password
   host: 10.12.26.142
