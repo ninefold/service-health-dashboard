@@ -61,7 +61,7 @@ class Service < ActiveRecord::Base
 
   def x_days_statuses(days_to_go_back)
     events = []
-    day = DateTime.now - days_to_go_back
+    day = DateTime.now - days_to_go_back.days
     days = (day .. day + days_to_go_back).to_a { |date|  '#{date}' }
 
     #adds a second 'today' for displaying the current status vs the daily severity status
