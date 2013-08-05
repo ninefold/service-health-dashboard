@@ -1,5 +1,8 @@
 ServiceHealthDashboard::Application.routes.draw do
   devise_for :users
+    as :user do
+      get 'users/edit' => 'devise/registration#edit', :as => 'edit_user_registration'
+    end
 
   get "events/index"
 
