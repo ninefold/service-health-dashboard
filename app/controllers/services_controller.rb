@@ -1,6 +1,6 @@
 class ServicesController < ApplicationController
 
-  before_filter :authenticate_user, :only => [:create, :new, :update, :edit]
+  before_filter :authenticate_user!, :only => [:create, :new, :update, :edit, :admin]
 
   caches_action :index, :show, :nf1, :nf2, :expires_in => 3.minutes
 
@@ -58,6 +58,9 @@ class ServicesController < ApplicationController
     @statuses = Status.all
     @maintenance = Service.platform_maintenance(nf_version=2)
     days = date_range
+  end
+
+  def admin
   end
 
 
