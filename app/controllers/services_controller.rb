@@ -61,6 +61,9 @@ class ServicesController < ApplicationController
   end
 
   def admin
+    respond_to do |format|
+      format.html 
+    end
   end
 
 
