@@ -1,7 +1,7 @@
   <tr>
     <td><a href="/services/<%=service.slug%>"><%= service.name %></td>
     <% service.x_days_statuses(3).each_with_index do |e,i| %>
-      <% if e == nil %>
+      <% if e.nil? %>
           <td class="status" style="width: 100px;">
             <div>
               <%= image_tag("status/tick-circle.png") %>
@@ -11,12 +11,20 @@
         <% if i == 0 %>
           <td class="status" style="width: 100px;">
             <div>
-              <%= image_tag("status/"+service.current_status.status.image+".png", alt: service.current_status.status.name)%>
-                <% if service.current_status.status.image != 'tick-circle' %>
-                  <div style="font-size:9px;">
-                    <% link_text = "/services/" + service.slug + "?status=" + service.current_status.id.to_s %>
-                    <a href="<%= link_text %>" style="border-bottom: dotted;border-bottom-width: 1px; text-decoration: none;">(more info)</a>
-                  </div>
+                <% if service.events.nil? %>
+                  <%= image_tag("status/tick-circle.png") %>
+                <% else %>
+                  <% if service.current_status.nil? %>
+                    <%= image_tag("status/tick-circle.png") %>
+                  <% else %>
+                    <%= image_tag("status/"+service.current_status.status.image+".png", alt: service.current_status.status.name)%>
+                    <% if service.current_status.status.image != 'tick-circle' %>
+                      <div style="font-size:9px;">
+                        <% link_text = "/services/" + service.slug + "?status=" + service.current_status.id.to_s %>
+                        <a href="<%= link_text %>" style="border-bottom: dotted;border-bottom-width: 1px; text-decoration: none;">(more info)</a>
+                      </div>
+                    <% end %>
+                  <% end %>
                 <% end %>
             </div>
           </td>

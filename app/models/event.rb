@@ -10,4 +10,7 @@ class Event < ActiveRecord::Base
   		where(invisible: false).
   			where(status_id: 2)
   end
+  def to_s
+    message
+  end
 end

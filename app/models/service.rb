@@ -39,7 +39,7 @@ class Service < ActiveRecord::Base
   def most_recent_event(date)
     e = Event.where('service_id = ?', self.id.to_s).
               where('invisible = ?', false).
-              where('start <= ?', date.end_of_day()).
+              where('start <= ?', date).
               order('start').last
     e == nil ? nil : e
   end
