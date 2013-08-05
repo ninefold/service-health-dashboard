@@ -1,7 +1,11 @@
 == How to use
-rake resque:setp
-rake resque:scheduler
-QUEUE=* rake resque:work
-rails c
 
-Make sure redis is running
+===Setup
+rake resque:setup
+
+===Running
+rake resque:scheduler
+
+QUEUE=* rake resque:work
+
+Make sure redis is running and the database is seeded
