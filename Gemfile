@@ -31,5 +31,5 @@ end
 
 gem 'devise'
 gem 'friendly_id', '~> 4.0.9'
-#gem 'db-charmer', :require => 'db_charmer'
-#gem 'bootstrap-datetimepicker-rails'
+gem 'fastercsv' # Only required on Ruby 1.8 and below
+gem 'rails_admin'

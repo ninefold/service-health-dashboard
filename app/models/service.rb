@@ -1,7 +1,7 @@
 class Service < ActiveRecord::Base
-	belongs_to :dependent
+	#belongs_to :dependent
   has_many :events
-	attr_accessible :description, :name, :order, :slug, :version, :invisible, :service_id, :dependent
+	attr_accessible :description, :name, :order, :slug, :version, :invisible, :service_id#, :dependent
 
   extend FriendlyId
   friendly_id :name, use: :slugged

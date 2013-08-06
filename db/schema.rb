@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130603034926) do
+ActiveRecord::Schema.define(:version => 20130806044802) do
 
   create_table "event_types", :force => true do |t|
     t.string   "name"
@@ -26,17 +26,30 @@ ActiveRecord::Schema.define(:version => 20130603034926) do
     t.datetime "start"
     t.boolean  "informational"
     t.integer  "event_type_id"
-    t.boolean  "invisible",     :default => false
+    t.boolean  "invisible"
     t.integer  "incident_id"
     t.text     "description"
-    t.datetime "created_at",                       :null => false
-    t.datetime "updated_at",                       :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   add_index "events", ["event_type_id"], :name => "index_events_on_event_type_id"
   add_index "events", ["incident_id"], :name => "index_events_on_incident_id"
   add_index "events", ["service_id"], :name => "index_events_on_service_id"
   add_index "events", ["status_id"], :name => "index_events_on_status_id"
+
+  create_table "rails_admin_histories", :force => true do |t|
+    t.text     "message"
+    t.string   "username"
+    t.integer  "item"
+    t.string   "table"
+    t.integer  "month",      :limit => 2
+    t.integer  "year",       :limit => 8
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
+  end
+
+  add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories"
 
   create_table "services", :force => true do |t|
     t.string   "name"
@@ -51,7 +64,6 @@ ActiveRecord::Schema.define(:version => 20130603034926) do
   end
 
   add_index "services", ["dependent_id"], :name => "index_services_on_dependent_id"
-  add_index "services", ["slug"], :name => "index_services_on_slug", :unique => true
 
   create_table "severities", :force => true do |t|
     t.string   "name"
