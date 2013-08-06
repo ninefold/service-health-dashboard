@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130806044802) do
+ActiveRecord::Schema.define(:version => 20130806231434) do
 
   create_table "event_types", :force => true do |t|
     t.string   "name"
@@ -28,7 +28,6 @@ ActiveRecord::Schema.define(:version => 20130806044802) do
     t.integer  "event_type_id"
     t.boolean  "invisible"
     t.integer  "incident_id"
-    t.text     "description"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
   end

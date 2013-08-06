@@ -3,7 +3,7 @@ class Event < ActiveRecord::Base
   belongs_to :status
   belongs_to :event_type
   #belongs_to :incident
-  attr_accessible :description, :informational, :invisible, :message, :start, :service_id, :event_type_id, :status_id
+  attr_accessible :informational, :invisible, :message, :start, :service_id, :event_type_id, :status_id
   after_create :schedule
 
 

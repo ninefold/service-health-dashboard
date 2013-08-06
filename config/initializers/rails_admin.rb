@@ -1,4 +1,4 @@
-# RailsAdmin config file. Generated on August 06, 2013 14:48
+# RailsAdmin config file. Generated on August 07, 2013 09:18
 # See github.com/sferik/rails_admin for more informations
 
 RailsAdmin.config do |config|
@@ -75,7 +75,6 @@ RailsAdmin.config do |config|
   #     configure :event_type_id, :integer         # Hidden 
   #     configure :invisible, :boolean 
   #     configure :incident_id, :integer 
-  #     configure :description, :text 
   #     configure :created_at, :datetime 
   #     configure :updated_at, :datetime 
 

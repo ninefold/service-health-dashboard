@@ -2,6 +2,8 @@ ServiceHealthDashboard::Application.routes.draw do
   
   
 
+  
+
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
   if Rails.env == 'production'
