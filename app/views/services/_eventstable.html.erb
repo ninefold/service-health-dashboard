@@ -4,10 +4,13 @@
   <%else%>
     <tr>
   <%end%>
-    <% if e.description %>
+    <% if e.message %>
       <td>
         <%= e.start.strftime("%b %d, %I:%M%P")  %> <a id="<%= e.id %>"/><br />
-        <div style="font-size:11px;"><a href="/<%=e.id%>" style="border-bottom: dotted;border-bottom-width: 1px; text-decoration: none;">(more info)</a></div>
+        <td class="status">
+                <%= image_tag("status/"+e.status.image+".png", alt: e.status.image)%>
+        </td>
+        <td><%= e.message%></td>
       </td>
     <% else %>
       <td><%= e.start.strftime("%b %d, %I:%M%P") %> <a id="<%= e.id%>"/></td>
