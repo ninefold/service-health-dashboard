@@ -37,7 +37,7 @@ class ServicesController < ApplicationController
                     where('invisible = ?', false).
                     order('start DESC')
 
-    @maintenance = Service.maintenance(service=@service.id).
+    @maintenance = Service.upcoming_maintenance(service=@service.id).
                     order('start DESC')
 
     respond_to do |format|
