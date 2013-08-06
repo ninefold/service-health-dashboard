@@ -10,7 +10,7 @@ class Event < ActiveRecord::Base
 
 
   def self.maintenance
-  	where(start: Time.now.utc..90.days.from_now.end_of_day).
+  	where(start: (Time.now.utc-12.hours)..90.days.from_now.end_of_day).
   		where(invisible: false).
   			where(status_id: 2)
   end
