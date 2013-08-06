@@ -40,14 +40,8 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(params[:event])
-
     respond_to do |format|
       if @event.save
-        if @event.start > DateTime.now && @event.invisible = true
-          es = EventScheduler
-          p "Scheduling event expose in "+(@event.start - DateTime.now).abs.round.to_s
-          Resque.enqueue_in((@event.start - DateTime.now).abs.round, es, @event.id)
-        end
         format.html { redirect_to '/', notice: 'Event was successfully created.' }
         format.json { render json: @event, status: :created, location: @event }
       else
