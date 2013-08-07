@@ -1,11 +1,14 @@
 == How to use
 
-===Setup
-rake resque:setup
-
 ===Running
-rake resque:scheduler
+The dashboard has a Procfile for foreman. All you need to do is
+foreman start
 
-QUEUE=* rake resque:work
-
+assuming passenger & apache is installed, configured, and running
 Make sure redis is running and the database is seeded
+
+==Pushing changes
+git pull
+bundle (only need to do if the Gemfile changes)
+rake db:migrate (only do this on ONE of the app servers. only need to do this if the schema changes)
+sudo service apache2 restart
