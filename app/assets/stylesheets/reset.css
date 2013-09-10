@@ -51,3 +51,50 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+#sub-nav-menu {
+display: block;
+font-size: 14px;
+margin: 0 10px 0 0;
+height: 26px;
+padding: 0;
+background-color: #333433;
+width: 100%;
+}
+
+#sub-nav-menu li {
+display: inline;
+padding: 0 15px;
+}
+
+.tab_organization{
+padding-left: 0px !important;
+}
+
+#sub-nav-menu li a {
+color: #aaacaf;
+font-size: 14px;
+text-transform: uppercase;
+font-family: "omnes_mediumregular", "Open Sans", Helvetica, Helvetica Neue, Arial;
+display: inline-block;
+}
+
+#sub-nav-menu li a:hover{
+color: #d9d9d9;
+text-decoration: none;
+}
+
+#sub-nav-menu li:first-child {
+padding-left: 0px !important;
+}
+
+#sub-nav-menu ul {
+    list-style:none;
+    position:relative;
+padding-top: 3px;
+margin-left: 48%;
+}
+
+.heading {
+	padding-top: 20px;
+}
