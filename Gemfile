@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.12'
 
-gem 'sqlite3'
+ # gem 'sqlite3'
 gem 'resque', '~>1.24.1', :require => ["resque/server"]
 gem 'resque-scheduler'
 gem 'mysql2'
