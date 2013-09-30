@@ -92,7 +92,7 @@ img {
     font-size: 20px;
     font-weight: 200;
     line-height: 1;
-    margin-left: -20px;
+    margin-left: -116px;
 }
 
 
@@ -100,6 +100,11 @@ img {
     padding-bottom: 20px;
     padding-left: 75px;
     padding-top: 20px;
+}
+
+.logo-img {
+    padding-top: 11px;
+    height: 89px;
 }
 
 #heading {
