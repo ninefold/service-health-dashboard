@@ -1,5 +1,5 @@
 .navbar-inner {
-    background-color: #000000;
+    background-color: #222;
     border-radius: 0 0 0 0;
     min-height: 40px;
     padding-left: 20px;
@@ -92,7 +92,7 @@ img {
     font-size: 20px;
     font-weight: 200;
     line-height: 1;
-    margin-left: -20px;
+    margin-left: -116px;
 }
 
 
@@ -100,6 +100,11 @@ img {
     padding-bottom: 20px;
     padding-left: 75px;
     padding-top: 20px;
+}
+
+.logo-img {
+    padding-top: 11px;
+    height: 89px;
 }
 
 #heading {
@@ -156,10 +161,21 @@ color: #fff;
 background-color: transparent !important;
 }
 
+.tab:hover{
+    text-decoration: none;
+    background-color: #333433;
+}
 
 
 .nav>li>a {
 display: block;
+font-size: 14px;
+font-family: "omnes_mediumregular", "Open Sans", Helvetica, Helvetica Neue, Arial;
+color: #aaacaf;
+float: left;
+position: relative;
+/*padding-left: 15px;*/
+padding-right: 15px;
 }
 
 
