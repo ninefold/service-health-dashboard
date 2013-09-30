@@ -34,10 +34,11 @@
 				<a href="/" class="brand"><%= image_tag("logo.png", :class => "logo-img", :alt => "rss feed") %></a>
 				<div class="nav-collapse collapse">
 					<nav class="nav">
-						<li><a href="http://ninefold.com">HOME</a></li>
-						<li><a href="/">SERVICE HEALTH</a></li>
-						<li><a href="https://help.ninefold.com/home">KNOWLEDGE BASE</a></li>
-						<li><a href="https://portal.ninefold.com">PORTAL</a></li>
+						<li><a href="http://ninefold.com/pricing">PRICING</a></li>
+						<li><a href="http://ninefold.com/performance">PERFORMANCE</a></li>
+						<li><a href="https://help.ninefold.com/home">DOCS</a></li>
+						<li><a href="https://help.ninefold.com/contact">CONTACT</a></li>
+						<li><a href="https://portal.ninefold.com">SIGN IN</a></li>
 						<% if user_signed_in? %>
 							<li><%= link_to 'ADMIN', '/admin' %></li>
 						<% end %>
@@ -50,6 +51,7 @@
 	<div id="sub-nav-menu">
 		<div id="sub-nav-wrap">
 			<ul>
+				<li><a class="tab" href="https://help.ninefold.com/home">KNOWLEDGE BASE</a></li>
 				<li><a class="tab" href="/2">Ninefold</a></li>
 				<li><a class="tab" href="/1">Original Ninefold</a></li>
 				</ul>
