@@ -31,15 +31,16 @@
 	<header class="navbar">
 		<div class="navbar-inner">
 			<div class="container">
-				<a href="/" class="brand"><%= image_tag("logo.png", :alt => "rss feed") %></a>
+				<a href="/" class="brand"><%= image_tag("logo.png", :class => "logo-img", :alt => "rss feed") %></a>
 				<div class="nav-collapse collapse">
 					<nav class="nav">
-						<li><a href="http://ninefold.com">Home</a></li>
-						<li><a href="/">Service Health</a></li>
-						<li><a href="https://help.ninefold.com/home">Knowledge Base</a></li>
-						<li><a href="https://portal.ninefold.com">Portal</a></li>
+						<li><a href="http://ninefold.com/pricing">PRICING</a></li>
+						<li><a href="http://ninefold.com/performance">PERFORMANCE</a></li>
+						<li><a href="https://help.ninefold.com/home">DOCS</a></li>
+						<li><a href="https://help.ninefold.com/contact">CONTACT</a></li>
+						<li><a href="https://portal.ninefold.com">SIGN IN</a></li>
 						<% if user_signed_in? %>
-							<li><%= link_to 'Admin', '/admin' %></li>
+							<li><%= link_to 'ADMIN', '/admin' %></li>
 						<% end %>
 					</nav>
 				</div>
@@ -50,8 +51,9 @@
 	<div id="sub-nav-menu">
 		<div id="sub-nav-wrap">
 			<ul>
-				<li class="main clazz tab_home first"><a href="/2" class="tab">Ninefold</a></li>
-				<li class="main tab_forums"><a class="tab" href="/1">Original Ninefold</a></li>
+				<li><a class="tab" href="https://help.ninefold.com/home">KNOWLEDGE BASE</a></li>
+				<li><a class="tab" href="/2">Ninefold</a></li>
+				<li><a class="tab" href="/1">Original Ninefold</a></li>
 				</ul>
 		</div>
 	</div>
