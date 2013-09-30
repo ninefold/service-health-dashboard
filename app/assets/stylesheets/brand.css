@@ -161,6 +161,10 @@ color: #fff;
 background-color: transparent !important;
 }
 
+.tab:hover{
+    text-decoration: none;
+    background-color: #333433;
+}
 
 
 .nav>li>a {
